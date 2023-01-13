@@ -28,6 +28,7 @@ knn.fit(x, y)
 u = knn.predict([[10, 9, 5, 4]])
 print(u)
 
+#Talk to Brian Jan 20
 #logistic regression form
 #logreg = LogisticRegression()
 #logreg.fit(x_train, y_train)
