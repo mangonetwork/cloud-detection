@@ -12,7 +12,7 @@ x = data.drop(['Species'], axis=1)
 x = x.drop(['Id'], axis = 1)
 y = data['Species']
 #plotting = sns.pairplot(data, hue='Species')
-x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.4, random_state=5)
+x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.9, random_state=5)
 
 #KNN Form
 k_range = list(range(1,26))
@@ -28,13 +28,13 @@ knn.fit(x, y)
 u = knn.predict([[10, 9, 5, 4]])
 print(u)
 
-#Talk to Brian Jan 20
+
 #logistic regression form
 #logreg = LogisticRegression()
 #logreg.fit(x_train, y_train)
 #y_pred = logreg.predict(x_test)
 #print(metrics.accuracy_score(y_test, y_pred))
-
+#histogram
 #plt.plot(k_range, scores)
 #plt.xlabel('Value of k for KNN')
 #plt.ylabel('Accuracy Score')

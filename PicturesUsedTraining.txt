@@ -1,0 +1,2 @@
+Med, Avg, Moon, Time, Cloudy (go for 100 total, 50 of each type)
+Start with Dark:
