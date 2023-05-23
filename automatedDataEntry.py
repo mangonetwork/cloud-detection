@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
-#import seaborn as sns
-#import matplotlib.pyplot as plt
+import seaborn as sns
+import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
 from sklearn import metrics
 from sklearn.linear_model import LogisticRegression
@@ -9,6 +9,7 @@ from sklearn.neighbors import KNeighborsClassifier
 import getUrls
 import GetVals
 import csv
+import math
 
 
 urlList = getUrls.getURL()
@@ -41,10 +42,12 @@ for k in k_range:
     knn.fit(x_train, y_train)
     y_pred = knn.predict(x_test)
     scores.append(metrics.accuracy_score(y_test, y_pred))
-# plt.figure()
-# plt.plot(k_range, scores, 'k.-')
-# plt.show()
+plt.figure()
+plt.plot(k_range, scores, 'k.-')
+plt.show()
 knn = KNeighborsClassifier(n_neighbors=5)
 knn.fit(x, y)
 u = knn.predict([[4733, 3564.1, 3917]])
 print(u)
+print(scores)
+print(k_range)

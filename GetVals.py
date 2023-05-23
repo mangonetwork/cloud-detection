@@ -5,10 +5,10 @@ Created on Wed Mar  8 16:35:03 2023
 @author: ndfon & MBurnes
 """
 import requests as rqs #urls from website
-#import matplotlib as mp
+import matplotlib as mp
 import matplotlib.pyplot as plt
 import pandas as pd
-
+import math
 import numpy as np
 import h5py as h5 # hdf5 files - large files compact
 import shutil as sh
@@ -23,7 +23,7 @@ def func(url):
     location = os.path.abspath(cwd)
     with open('testfile.hdf5', 'wb') as location:
         sh.copyfileobj(dump, location)
-    file = h5.File('testfile.hdf5', 'r')
+    file = h5.File('testfile.hdf5', 'r+')
     
     a = file['image'] #array of values
     emptA = []
@@ -33,8 +33,9 @@ def func(url):
     k = len(a[:, 0])
     count = 0
     #radius to use for equation of a circle: 
-    rad = 50
-    #image has decimals, need to iterate with for all and then use .iO for finding temporary dimensions for the circle calculation
+    rad = 225 #change to increase radius of measurement
+    #image has decimals, need to iterate with for all and then use .index Of for finding temporary dimensions for the circle calculation
+    
     for x in range(k):
         for y in range(h):
             circleCalc = (x - (k/2))**2 + (y - (h/2))**2 
@@ -43,7 +44,8 @@ def func(url):
             # print(rad**2)
             # print(circleCalc)
             if circleCalc > rad**2:
-                a[x][y] = 10000
+                a[x, y] = 9999999
+                #print(a[x][y])
                 count += 1
                 
 
@@ -67,11 +69,11 @@ def func(url):
     # final_img_arr = np.dstack((img_arr, lum_img_arr))
     # imgplot = plt.imshow(Image.fromarray(final_img_arr))
     # plt.show()
-    print(count)
-    print(k, h)
-    plt.imshow(a, cmap = 'hot')
-    plt.show()
-    print(a)
+    # print(count)
+    # print(k, h)
+    # plt.imshow(a) #cmap = 'hot')
+    # plt.show()
+    # print(a)
     
     
     #b=[]
