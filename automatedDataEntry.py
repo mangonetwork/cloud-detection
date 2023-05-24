@@ -13,7 +13,9 @@ import math
 
 
 urlList = getUrls.getURL()
+
 for lst in urlList:
+    
     letter = lst[1]
     #print(lst[0])
     vals = GetVals.func(lst[0])
@@ -38,6 +40,7 @@ x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.4, random_
 k_range = list(range(1,26))
 scores = []
 for k in k_range:
+    
     knn = KNeighborsClassifier(n_neighbors=k)
     knn.fit(x_train, y_train)
     y_pred = knn.predict(x_test)

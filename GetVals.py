@@ -28,7 +28,7 @@ def func(url):
     a = file['image'] #array of values
     emptA = []
 
-    #a = a[100:450, 100:550]
+    a = a[100:450, 100:550]
     h = len(a[0])
     k = len(a[:, 0])
     count = 0
@@ -37,6 +37,7 @@ def func(url):
     #image has decimals, need to iterate with for all and then use .index Of for finding temporary dimensions for the circle calculation
     
     for x in range(k):
+        
         for y in range(h):
             circleCalc = (x - (k/2))**2 + (y - (h/2))**2 
             # print('h' + str(h))
@@ -44,7 +45,7 @@ def func(url):
             # print(rad**2)
             # print(circleCalc)
             if circleCalc > rad**2:
-                a[x, y] = 9999999
+                #a[x, y] = 0
                 #print(a[x][y])
                 count += 1
                 
@@ -76,9 +77,6 @@ def func(url):
     # print(a)
     
     
-    #b=[]
-    #for i in a:
-        #b += [x for x in i if x < 60000]
     return [np.median(a), np.percentile(a, 90),  np.percentile(a, 10)]
 #func()
 
