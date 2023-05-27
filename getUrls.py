@@ -98,5 +98,21 @@ def getURL():
     ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/263/09/mango-low-greenline-20220920-091200.hdf5', 'N'],
     ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/250/10/mango-low-greenline-20220907-102400.hdf5', 'N'],
     ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/249/11/mango-low-greenline-20220906-110600.hdf5', 'N'],
-    ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/243/10/mango-low-greenline-20220831-102000.hdf5', 'N']]
+    ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/243/10/mango-low-greenline-20220831-102000.hdf5', 'N'],
+    ['https://data.mangonetwork.org/data/transport/mango/archive/blo/greenline/raw/2022/224/04/mango-blo-greenline-20220812-042200.hdf5', 'N'], #blo data starts here
+    ['https://data.mangonetwork.org/data/transport/mango/archive/blo/greenline/raw/2022/223/06/mango-blo-greenline-20220811-062200.hdf5', 'N'],
+    ['https://data.mangonetwork.org/data/transport/mango/archive/blo/greenline/raw/2022/285/02/mango-blo-greenline-20221012-022400.hdf5', 'Y'],
+    ['https://data.mangonetwork.org/data/transport/mango/archive/blo/greenline/raw/2022/275/07/mango-blo-greenline-20221002-073000.hdf5', 'Y'],
+    ['https://data.mangonetwork.org/data/transport/mango/archive/blo/greenline/raw/2022/297/11/mango-blo-greenline-20221024-110000.hdf5', 'Y'],
+    ['https://data.mangonetwork.org/data/transport/mango/archive/blo/greenline/raw/2022/236/06/mango-blo-greenline-20220824-062600.hdf5', 'Y'],
+    ['https://data.mangonetwork.org/data/transport/mango/archive/blo/greenline/raw/2022/243/07/mango-blo-greenline-20220831-074000.hdf5', 'Y'],
+    ['https://data.mangonetwork.org/data/transport/mango/archive/blo/greenline/raw/2022/258/05/mango-blo-greenline-20220915-050000.hdf5', 'Y'],
+    ['https://data.mangonetwork.org/data/transport/mango/archive/blo/greenline/raw/2022/264/06/mango-blo-greenline-20220921-062800.hdf5', 'Y'],
+    ['https://data.mangonetwork.org/data/transport/mango/archive/blo/greenline/raw/2022/262/08/mango-blo-greenline-20220919-083000.hdf5', 'Y'],
+    ['https://data.mangonetwork.org/data/transport/mango/archive/blo/greenline/raw/2022/250/08/mango-blo-greenline-20220907-080800.hdf5', 'Y'],
+    ['https://data.mangonetwork.org/data/transport/mango/archive/blo/greenline/raw/2022/246/05/mango-blo-greenline-20220903-053800.hdf5', 'Y'],
+    ['https://data.mangonetwork.org/data/transport/mango/archive/blo/greenline/raw/2022/293/07/mango-blo-greenline-20221020-072800.hdf5', 'Y'],
+    ['https://data.mangonetwork.org/data/transport/mango/archive/blo/greenline/raw/2022/100/10/mango-blo-greenline-20220410-101800.hdf5', 'Y'],
+    ['https://data.mangonetwork.org/data/transport/mango/archive/blo/greenline/raw/2022/305/05/mango-blo-greenline-20221101-050400.hdf5', 'Y']]
+
     return urls

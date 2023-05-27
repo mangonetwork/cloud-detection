@@ -36,18 +36,18 @@ def func(url):
     rad = 225 #change to increase radius of measurement
     #image has decimals, need to iterate with for all and then use .index Of for finding temporary dimensions for the circle calculation
     
-    for x in range(k):
+    # for x in range(k):
         
-        for y in range(h):
-            circleCalc = (x - (k/2))**2 + (y - (h/2))**2 
-            # print('h' + str(h))
-            # print(k)
-            # print(rad**2)
-            # print(circleCalc)
-            if circleCalc > rad**2:
-                #a[x, y] = 0
-                #print(a[x][y])
-                count += 1
+    #     for y in range(h):
+    #         circleCalc = (x - (k/2))**2 + (y - (h/2))**2 
+    #         # print('h' + str(h))
+    #         # print(k)
+    #         # print(rad**2)
+    #         # print(circleCalc)
+    #         if circleCalc > rad**2:
+    #             a[x, y] = 0
+    #             #print(a[x][y])
+    #             count += 1
                 
 
 
