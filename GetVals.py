@@ -32,22 +32,23 @@ def func(url):
     h = len(a[0])
     k = len(a[:, 0])
     count = 0
+    dataPoints = []
     #radius to use for equation of a circle: 
-    rad = 225 #change to increase radius of measurement
+    rad = 150 #change to increase radius of measurement
     #image has decimals, need to iterate with for all and then use .index Of for finding temporary dimensions for the circle calculation
     
-    # for x in range(k):
+    for x in range(k):
         
-    #     for y in range(h):
-    #         circleCalc = (x - (k/2))**2 + (y - (h/2))**2 
-    #         # print('h' + str(h))
-    #         # print(k)
-    #         # print(rad**2)
-    #         # print(circleCalc)
-    #         if circleCalc > rad**2:
-    #             a[x, y] = 0
-    #             #print(a[x][y])
-    #             count += 1
+        for y in range(h):
+            circleCalc = (x - (k/2))**2 + (y - (h/2))**2 
+            # print('h' + str(h))
+            # print(k)
+            # print(rad**2)
+            # print(circleCalc)
+            if circleCalc <= rad**2:
+                dataPoints.append(a[x, y])
+                #print(a[x][y])
+                count += 1
                 
 
 
@@ -77,7 +78,7 @@ def func(url):
     # print(a)
     
     
-    return [np.median(a), np.percentile(a, 90),  np.percentile(a, 10)]
+    return [np.median(dataPoints), np.percentile(dataPoints, 90),  np.percentile(dataPoints, 10)]
 #func()
 
 #def func1():
