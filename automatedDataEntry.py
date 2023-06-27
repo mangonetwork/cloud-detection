@@ -41,7 +41,7 @@ x = data.drop(['ClearSky'], axis=1)
 urlCol = x['URL']
 x = x.drop(['URL'], axis = 1)
 y = data['ClearSky']
-x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.4, random_state=3)
+x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.4, random_state=42)
 k_range = list(range(1,26))
 scores = []
 trainingScores = []
@@ -61,20 +61,20 @@ plt.figure()
 plt.plot(k_range, scores, 'k.-')
 plt.xlabel('Range of k [1-25]')
 plt.ylabel('Accuracy given k')
-#plt.show()
+plt.show()
 
 plt.figure()
 plt.plot(k_range, trainingScores, 'k.-')
 plt.xlabel('Range of k [1-25]')
 plt.ylabel('Training Accuracy given k')
-#plt.show()
+plt.show()
 
 knn = KNeighborsClassifier(n_neighbors=8)
 knn.fit(x_train, y_train)
 
 
 u = knn.predict(x_test)
-print(y_test.keys())
+#print(y_test.keys())
 counter = 0
 misClassList = []
 for i in y_test.keys():
@@ -82,11 +82,11 @@ for i in y_test.keys():
         continue
         #print("CORRECT: ", x_test.iloc[counter])
     else:
-        misClassList.append(urlCol[counter])
-        print(y_test[i])
-        print(u[counter])
+        misClassList.append(urlCol[i])
+        # print(y_test[i])
+        # print(u[counter])
     counter+=1
-print(u)
-print(scores)
-print(k_range)
+# print(u)
+# print(scores)
+# print(k_range)
 viewImage.ViewIncorrect(misClassList)

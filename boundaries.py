@@ -48,14 +48,14 @@ cmap_light = ListedColormap(["cyan", "orange"])
 cmap_bold = ["darkorange", "c"]
 
 n_neighbors = 8
-X = x[:, :2]
+X = x[:, 1:]
 for weights in ["uniform", "distance"]:
     clf = neighbors.KNeighborsClassifier(n_neighbors, weights=weights)
-    print(X.shape)
-    print(y.shape)
+    # print(X.shape)
+    # print(y.shape)
     clf.fit(X, y)
     _, ax = plt.subplots()
-    DecisionBoundaryDisplay.from_estimator(clf, X, cmap=cmap_light, ax=ax, response_method="predict", plot_method="pcolormesh", shading="auto", xlabel="Median Pixel Brightness", ylabel="90th Percentile Pixel Brightnes")
+    DecisionBoundaryDisplay.from_estimator(clf, X, cmap=cmap_light, ax=ax, response_method="predict", plot_method="pcolormesh", shading="auto", xlabel="90th Percentile Pixel Brightnes", ylabel="10th Percentile Pixel Brightnes")
     sns.scatterplot(x=X[:, 0], y=X[:, 1], palette=cmap_bold, alpha=1.0, edgecolor="black", hue=data['ClearSky'])
 
 plt.show()

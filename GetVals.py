@@ -77,8 +77,8 @@ def func(url):
     # plt.show()
     # print(a)
     
-    
+    #print([np.median(dataPoints), np.percentile(dataPoints, 90),  np.percentile(dataPoints, 10)])
     return [np.median(dataPoints), np.percentile(dataPoints, 90),  np.percentile(dataPoints, 10)]
 #func()
-
+#func(url = 'https://data.mangonetwork.org/data/transport/mango/archive/blo/greenline/raw/2022/291/04/mango-blo-greenline-20221018-043800.hdf5')
 #def func1():
