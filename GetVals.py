@@ -15,6 +15,7 @@ import shutil as sh
 import os as os
 from PIL import Image, ImageDraw
 import math
+
 def func(url):
     #url = 'https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/237/05/mango-low-greenline-20220825-052400.hdf5'
     r = rqs.get(url, stream=True)
@@ -34,8 +35,9 @@ def func(url):
     count = 0
     dataPoints = []
     #radius to use for equation of a circle: 
-    rad = 150 #change to increase radius of measurement
-    #image has decimals, need to iterate with for all and then use .index Of for finding temporary dimensions for the circle calculation
+    rad = 200 #change to increase radius of measurement
+    #image has decimals, need to iterate with for all and then use .indepip install chardet
+    # x Of for finding temporary dimensions for the circle calculation
     
     for x in range(k):
         
@@ -76,9 +78,12 @@ def func(url):
     # plt.imshow(a) #cmap = 'hot')
     # plt.show()
     # print(a)
-    
+    a = np.percentile(dataPoints, 10)
+    b = np.percentile(dataPoints, 90)
+    varArr = [i for i in dataPoints if i > a and i < b]
+    #print(varArr)
     #print([np.median(dataPoints), np.percentile(dataPoints, 90),  np.percentile(dataPoints, 10)])
-    return [np.median(dataPoints), np.percentile(dataPoints, 90),  np.percentile(dataPoints, 10)]
+    return [np.median(varArr), b,  a]
 #func()
 #func(url = 'https://data.mangonetwork.org/data/transport/mango/archive/blo/greenline/raw/2022/291/04/mango-blo-greenline-20221018-043800.hdf5')
 #def func1():

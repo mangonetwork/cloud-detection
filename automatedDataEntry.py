@@ -14,6 +14,9 @@ from sklearn import neighbors, datasets
 from matplotlib.colors import ListedColormap
 import math
 import viewImage
+from sklearn.linear_model import LogisticRegression
+from sklearn import preprocessing
+
 
 
 urlList = getUrls.getURL()
@@ -23,16 +26,19 @@ for lst in urlList:
     letter = lst[1]
     #print(lst[0])
     vals = GetVals.func(lst[0])
+    #print(vals)
     lst[1] = vals[0]
     lst.append(vals[1])
     lst.append(vals[2])
+    #lst.append(vals[3])
     lst.append(letter)
+    #print(lst)
     # with open('Brightness_Data_Copy.csv', 'w', newline='') as myfile:
     #     wr = csv.writer(myfile, quoting=csv.QUOTE_ALL)
     #     wr.writerow(lst)
 
 
-df = pd.DataFrame(urlList, columns=['URL', 'Median', '90th Percentile', '10th Percentile', 'ClearSky'])
+df = pd.DataFrame(urlList, columns=['URL', 'Median', '90th Percentile', 'Mean', 'ClearSky'])
 df.to_csv("./Brightness_Data_Copy.csv", sep = ',', index = False)
 
 
@@ -40,8 +46,9 @@ data = pd.read_csv("Brightness_Data_Copy.csv")
 x = data.drop(['ClearSky'], axis=1)
 urlCol = x['URL']
 x = x.drop(['URL'], axis = 1)
+#x = preprocessing.normalize(x, axis=0)
 y = data['ClearSky']
-x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.4, random_state=42)
+x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.4, random_state=0)
 k_range = list(range(1,26))
 scores = []
 trainingScores = []
@@ -69,7 +76,13 @@ plt.xlabel('Range of k [1-25]')
 plt.ylabel('Training Accuracy given k')
 plt.show()
 
-knn = KNeighborsClassifier(n_neighbors=8)
+logr = LogisticRegression()
+logr.fit(x_train, y_train)
+y_pred = logr.predict(x_test)
+print(metrics.accuracy_score(y_test, y_pred))
+
+
+knn = KNeighborsClassifier(n_neighbors=5)
 knn.fit(x_train, y_train)
 
 
