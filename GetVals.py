@@ -15,6 +15,10 @@ import shutil as sh
 import os as os
 from PIL import Image, ImageDraw
 import math
+import scipy
+from scipy.stats import spearmanr
+
+
 
 def func(url):
     #url = 'https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/237/05/mango-low-greenline-20220825-052400.hdf5'
@@ -69,7 +73,7 @@ def func(url):
     #print(a.shape)
     #print(a[1])
     #print(list(file.keys())) # don't need units, only images
-    
+    #correlation between 
     # final_img_arr = np.dstack((img_arr, lum_img_arr))
     # imgplot = plt.imshow(Image.fromarray(final_img_arr))
     # plt.show()
@@ -81,9 +85,22 @@ def func(url):
     a = np.percentile(dataPoints, 10)
     b = np.percentile(dataPoints, 90)
     varArr = [i for i in dataPoints if i > a and i < b]
+    #c = np.fft.fft(dataPoints, n=5)
+    d = scipy.fft.fft(dataPoints)
+    
+    corr = spearmanr(d, dataPoints, nan_policy='omit')
+    print(corr)
+
     #print(varArr)
     #print([np.median(dataPoints), np.percentile(dataPoints, 90),  np.percentile(dataPoints, 10)])
-    return [np.median(varArr), b,  a]
-#func()
+    return [np.mean(dataPoints), b, np.real(d[0]), np.imag(d[0])]
 #func(url = 'https://data.mangonetwork.org/data/transport/mango/archive/blo/greenline/raw/2022/291/04/mango-blo-greenline-20221018-043800.hdf5')
 #def func1():
+
+
+
+
+#correlation between current variables and labelled images, then compare with the 1s and 0s
+#abs for each fourier frequency, try to get 3 features
+#swap a feature with the best fourier feature
+#numpy correlation function

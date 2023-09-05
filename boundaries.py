@@ -14,24 +14,24 @@ from sklearn import neighbors, datasets
 from matplotlib.colors import ListedColormap
 import math
 
-urlList = getUrls.getURL()
+# urlList = getUrls.getURL()
 
-for lst in urlList:
+# for lst in urlList:
     
-    letter = lst[1]
-    #print(lst[0])
-    vals = GetVals.func(lst[0])
-    lst[1] = vals[0]
-    lst.append(vals[1])
-    lst.append(vals[2])
-    lst.append(letter)
-    # with open('Brightness_Data_Copy.csv', 'w', newline='') as myfile:
-    #     wr = csv.writer(myfile, quoting=csv.QUOTE_ALL)
-    #     wr.writerow(lst)
+#     letter = lst[1]
+#     #print(lst[0])
+#     vals = GetVals.func(lst[0])
+#     lst[1] = vals[0]
+#     lst.append(vals[1])
+#     lst.append(vals[2])
+#     lst.append(letter)
+#     # with open('Brightness_Data_Copy.csv', 'w', newline='') as myfile:
+#     #     wr = csv.writer(myfile, quoting=csv.QUOTE_ALL)
+#     #     wr.writerow(lst)
 
 
-df = pd.DataFrame(urlList, columns=['URL', 'Median', '90th Percentile', 'Mean', 'ClearSky'])
-df.to_csv("./Brightness_Data_Copy.csv", sep = ',', index = False)
+# df = pd.DataFrame(urlList, columns=['URL', 'Median', '90th Percentile', 'Mean', 'ClearSky'])
+# df.to_csv("./Brightness_Data_Copy.csv", sep = ',', index = False)
 
 
 data = pd.read_csv("Brightness_Data_Copy.csv")
@@ -47,16 +47,20 @@ y = np.asarray(y)
 cmap_light = ListedColormap(["cyan", "orange"])
 cmap_bold = ["darkorange", "c"]
 
-n_neighbors = 6
-X = x[:, [0, 2]]
+n_neighbors = 8
+X = x[:, [1, 2]]
 for weights in ["uniform", "distance"]:
     clf = neighbors.KNeighborsClassifier(n_neighbors, weights=weights)
     # print(X.shape)
     # print(y.shape)
     clf.fit(X, y)
     _, ax = plt.subplots()
-    DecisionBoundaryDisplay.from_estimator(clf, X, cmap=cmap_light, ax=ax, response_method="predict", plot_method="pcolormesh", shading="auto", xlabel="Median Pixel Brightnes", ylabel="Mean Pixel Brightnes")
+    DecisionBoundaryDisplay.from_estimator(clf, X, cmap=cmap_light, ax=ax, response_method="predict", plot_method="pcolormesh", shading="auto", xlabel="10th Percentile Pixel Brightness", ylabel="Standard Deviation of Pixel Brightness")
     sns.scatterplot(x=X[:, 0], y=X[:, 1], palette=cmap_bold, alpha=1.0, edgecolor="black", hue=data['ClearSky'])
 
 plt.show()
-
+#improved speed
+#got svm up
+#tried new params
+#started getting ready for practical application
+#dataset expansion
