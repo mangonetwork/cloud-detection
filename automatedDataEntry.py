@@ -20,12 +20,13 @@ from sklearn import svm
 from ast import literal_eval
 from sklearn.metrics import ConfusionMatrixDisplay
 from sklearn.metrics import confusion_matrix
+import heapq
 
 
 
 #getURLS is the list of URLS corresponding to images that measurements are taken from (in hdf5 format)
 urlList = getUrls.getURL()
-
+bigDF = pd.DataFrame()
 
 
 
@@ -33,7 +34,7 @@ for lst in urlList: #this loop repopulates the Brightness_data_copy csv file whi
     
     letter = lst[1]
     #print(lst[0])
-    vals = GetVals.func(lst[0])
+    vals = GetVals.func(lst[0], bigDF)
     #print(vals)
     lst[1] = vals[0]
     lst.append(vals[1])
@@ -46,6 +47,8 @@ for lst in urlList: #this loop repopulates the Brightness_data_copy csv file whi
         wr = csv.writer(myfile, quoting=csv.QUOTE_ALL)
         wr.writerow(lst)
 
+#print(bigDF)
+newList = []
 
 df = pd.DataFrame(urlList, columns=['URL', 'Median', '90th Percentile', 'Mean', 'ClearSky'])
 df.to_csv("./Brightness_Data_Copy.csv", sep = ',', index = False)
@@ -59,6 +62,23 @@ x = x.drop(['URL'], axis = 1) #drop the url column from the dataset
 # x['90th Percentile'] = literal_eval(x['90th Percentile']) 
 #x = preprocessing.normalize(x, axis=0)
 y = data['ClearSky'] #save the classification column as a variable
+for q in range(len(y)):
+    if y[q] == 'N':
+        newList.append(0)
+    else:
+        newList.append(1)
+
+res =[]
+for d in range(len(bigDF.index)):
+    b = bigDF.iloc[d].to_numpy()
+    #print(b)
+    #print(np.corrcoef(newList, b))
+    if np.corrcoef(newList, b)[0][1] <= -0.55:
+         print(d)
+    res.append(np.corrcoef(newList, b)[0][1])
+print(res.index(min(res)))
+
+
 x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.4, random_state=0) #split the dataset into a test/train duo for fitting (60% of data) and evaluating fit quality (40% of data). Consistent random state is used to ensure testing is consistent 
 k_range = list(range(1,26)) #this list is used to generate a plot of the test accuracy depending on the number of nearest neighbors (k). 25 is chosen as the limit rather arbitrarily, but anything beyond 25 is usually victim to overfitting
 scores = []
@@ -95,7 +115,8 @@ plt.show()
 logr = LogisticRegression()
 logr.fit(x_train, y_train)
 y_pred = logr.predict(x_test)
-print(metrics.accuracy_score(y_test, y_pred))
+print('logr accuracy: ' + str(metrics.accuracy_score(y_test, y_pred)))
+#print(metrics.accuracy_score(y_test, y_pred))
 
 #As an alternative to the KNN 'lazy' prediction, this block tests linear SVM on the same train/test set as knn
 clf = svm.SVC()
@@ -110,13 +131,13 @@ y_pred = clf.predict(x_test)
 print(metrics.accuracy_score(y_test, y_pred))
 
 
-knn = KNeighborsClassifier(n_neighbors=5)
-knn.fit(x_train, y_train)
+#knn = KNeighborsClassifier(n_neighbors=5)
+#knn.fit(x_train, y_train)
 
-knn = KNeighborsClassifier(n_neighbors=scores.index(max(scores)))
-knn.fit(x_train, y_train)
+#knn = KNeighborsClassifier(n_neighbors=scores.index(max(scores)))
+#knn.fit(x_train, y_train)
     
-cm = confusion_matrix(y_test, knn.predict(x_test))
+cm = confusion_matrix(y_test, logr.predict(x_test))
 disp = ConfusionMatrixDisplay(cm)
 disp.plot()
 plt.show()

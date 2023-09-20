@@ -17,10 +17,10 @@ from PIL import Image, ImageDraw
 import math
 import scipy
 from scipy.stats import spearmanr
+import FourierCorrelation
 
 
-
-def func(url):
+def func(url, bigDF):
     #url = 'https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/237/05/mango-low-greenline-20220825-052400.hdf5'
     r = rqs.get(url, stream=True)
     dump = r.raw
@@ -82,18 +82,28 @@ def func(url):
     # plt.imshow(a) #cmap = 'hot')
     # plt.show()
     # print(a)
-    a = np.percentile(dataPoints, 10)
+    p = np.percentile(dataPoints, 10)
     b = np.percentile(dataPoints, 90)
-    varArr = [i for i in dataPoints if i > a and i < b]
+    varArr = [i for i in dataPoints if i > p and i < b]
     #c = np.fft.fft(dataPoints, n=5)
-    d = scipy.fft.fft(dataPoints)
+    norm = np.linalg.norm(a)
+    a = a/norm 
+    d = scipy.fft.fft2(a)
+    #FourierCorrelation.storeFourier(d)
+    #corr = spearmanr(d, dataPoints, nan_policy='omit')
+    #print(corr)
+    for i in range(len(d)):
+        for j in range(len(d[i])):
+            d[i][j] = abs(d[i][j])
+        
+    d = d.real
+    #print(d[0].shape)
+    #print(d)
+    bigDF[url] = np.ndarray.flatten(d)
     
-    corr = spearmanr(d, dataPoints, nan_policy='omit')
-    print(corr)
-
     #print(varArr)
     #print([np.median(dataPoints), np.percentile(dataPoints, 90),  np.percentile(dataPoints, 10)])
-    return [np.mean(dataPoints), b, np.real(d[0]), np.imag(d[0])]
+    return [np.mean(dataPoints), d[1][3], d[1][0]]
 #func(url = 'https://data.mangonetwork.org/data/transport/mango/archive/blo/greenline/raw/2022/291/04/mango-blo-greenline-20221018-043800.hdf5')
 #def func1():
 
