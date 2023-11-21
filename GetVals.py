@@ -9,7 +9,7 @@ import matplotlib as mp
 import matplotlib.pyplot as plt
 import pandas as pd
 import math
-import numpy as np
+import numpy as npfourier
 import h5py as h5 # hdf5 files - large files compact
 import shutil as sh
 import os as os
@@ -17,7 +17,6 @@ from PIL import Image, ImageDraw
 import math
 import scipy
 from scipy.stats import spearmanr
-import FourierCorrelation
 
 
 def func(url, bigDF):

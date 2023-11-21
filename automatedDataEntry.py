@@ -13,7 +13,6 @@ from sklearn.inspection import DecisionBoundaryDisplay
 from sklearn import neighbors, datasets
 from matplotlib.colors import ListedColormap
 import math
-import viewImage
 from sklearn.linear_model import LogisticRegression
 from sklearn import preprocessing
 from sklearn import svm
