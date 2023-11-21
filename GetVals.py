@@ -31,7 +31,7 @@ def func(url, bigDF):
     file = h5.File('testfile.hdf5', 'r+')
     
     a = file['image'] #array of values
-    emptA = []
+    #emptA = []
 
     a = a[100:450, 100:550]
     h = len(a[0])
@@ -62,20 +62,21 @@ def func(url, bigDF):
     #     for j in range(h):
     #         if (i)
 
-    # lum_img = Image.new('L',[h,w] ,0)
+    # lum_img = Image.new('L',[h,k] ,0)
     # draw = ImageDraw.Draw(lum_img)
-    # draw.pieslice([(0,0),(h,w)],0,360,fill=255)
+    # draw.pieslice([(0,0),(h,k)],0,360,fill=255)
     # img_arr = np.array(a)
     # lum_img_arr = np.array(lum_img)
 
 
-    #make something to trim the rectangle into a central circle. get all arrays that are in positions index <= abs((length/2) + 
-    #print(a.shape)
-    #print(a[1])
-    #print(list(file.keys())) # don't need units, only images
-    #correlation between 
+    # #make something to trim the rectangle into a central circle. get all arrays that are in positions index <= abs((length/2) + 
+    # print(a.shape)
+    # print(a[1])
+    # print(list(file.keys())) # don't need units, only images
+    # #correlation between 
     # final_img_arr = np.dstack((img_arr, lum_img_arr))
     # imgplot = plt.imshow(Image.fromarray(final_img_arr))
+    # plt.imshow(a)
     # plt.show()
     # print(count)
     # print(k, h)
@@ -103,7 +104,7 @@ def func(url, bigDF):
     
     #print(varArr)
     #print([np.median(dataPoints), np.percentile(dataPoints, 90),  np.percentile(dataPoints, 10)])
-    return [np.mean(dataPoints), d[1][3], d[1][0]]
+    return [np.mean(dataPoints), d[1][3], d[349][0], d[28][449], d[349][3]]
 #func(url = 'https://data.mangonetwork.org/data/transport/mango/archive/blo/greenline/raw/2022/291/04/mango-blo-greenline-20221018-043800.hdf5')
 #def func1():
 
