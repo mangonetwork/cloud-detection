@@ -9,7 +9,7 @@ import matplotlib as mp
 import matplotlib.pyplot as plt
 import pandas as pd
 import math
-import numpy as npfourier
+import numpy as np
 import h5py as h5 # hdf5 files - large files compact
 import shutil as sh
 import os as os
@@ -19,19 +19,21 @@ import scipy
 from scipy.stats import spearmanr
 
 
-def func(url, bigDF):
+def func(bigDF, url='', arr=[[]]):
     #url = 'https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/237/05/mango-low-greenline-20220825-052400.hdf5'
-    r = rqs.get(url, stream=True)
-    dump = r.raw
-    cwd = os.getcwd()
-    location = os.path.abspath(cwd)
-    with open('testfile.hdf5', 'wb') as location:
-        sh.copyfileobj(dump, location)
-    file = h5.File('testfile.hdf5', 'r+')
-    
-    a = file['image'] #array of values
-    #emptA = []
+    if (not url==''):
+        r = rqs.get(url, stream=True)
+        dump = r.raw
+        cwd = os.getcwd()
+        location = os.path.abspath(cwd)
+        with open('testfile.hdf5', 'wb') as location:
+            sh.copyfileobj(dump, location)
+        file = h5.File('testfile.hdf5', 'r+')
+        
+        a = file['image'] #array of values
+        #emptA = []
 
+    
     a = a[100:450, 100:550]
     h = len(a[0])
     k = len(a[:, 0])

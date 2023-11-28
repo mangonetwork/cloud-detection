@@ -33,10 +33,16 @@ bigDF = pd.DataFrame()
 
 
 
-# for lst in urlList: #this loop repopulates the Brightness_data_copy csv file which stores measurements of the images in getURLs
+
+##SECTION 1: USING GETVALS.PY TO ACQUIRE ALL THE NECESSARY DATA. UNCOMMENT THIS SECTION TO RECOLLECT DATA
+
+#       this for loop is what collects the data, iteraing through GETURLS.py which is a list of the desired images
+# for lst in urlList:
     
 #     letter = lst[1]
 #     #print(lst[0])
+
+        #vals is the function that analyses each image and calculates each relevant feature
 #     vals = GetVals.func(lst[0], bigDF)
 #     #print(vals)
 #     lst[1] = vals[0]
@@ -46,16 +52,20 @@ bigDF = pd.DataFrame()
 #     lst.append(vals[4])
 #     lst.append(letter)
 #     #print(lst)
+        #this block writes the results to the brightness data csv file where all relevant stats are kept
 #     with open('Brightness_Data_Copy.csv', 'w', newline='') as myfile:
 #         wr = csv.writer(myfile, quoting=csv.QUOTE_ALL)
 #         wr.writerow(lst)
-
-# #print(bigDF)
 # newList = []
 
 # df = pd.DataFrame(urlList, columns=['URL', 'Median', '90th Percentile', 'Mean', 'versions', 'version2', 'ClearSky'])
 # df.to_csv("./Brightness_Data_Copy.csv", sep = ',', index = False)
 
+
+##END OF SECTION 1
+
+
+##SECTION 2: 
 
 data = pd.read_csv("Brightness_Data_Copy.csv") #load the existing csv into a data variable
 
