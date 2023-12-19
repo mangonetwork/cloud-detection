@@ -22,13 +22,13 @@ from sklearn.metrics import confusion_matrix
 import heapq
 from sklearn.metrics import RocCurveDisplay
 from sklearn.preprocessing import LabelBinarizer
-
+import testURLS
 
 
 
 
 #getURLS is the list of URLS corresponding to images that measurements are taken from (in hdf5 format)
-urlList = getUrls.getURL()
+urlList = testURLS.getURL()
 bigDF = pd.DataFrame()
 
 
@@ -37,29 +37,29 @@ bigDF = pd.DataFrame()
 ##SECTION 1: USING GETVALS.PY TO ACQUIRE ALL THE NECESSARY DATA. UNCOMMENT THIS SECTION TO RECOLLECT DATA
 
 #       this for loop is what collects the data, iteraing through GETURLS.py which is a list of the desired images
-# for lst in urlList:
+for lst in urlList:
     
-#     letter = lst[1]
-#     #print(lst[0])
+    letter = lst[1]
+    #print(lst[0])
 
         #vals is the function that analyses each image and calculates each relevant feature
-#     vals = GetVals.func(lst[0], bigDF)
-#     #print(vals)
-#     lst[1] = vals[0]
-#     lst.append(vals[1])
-#     lst.append(vals[2])
-#     lst.append(vals[3])
-#     lst.append(vals[4])
-#     lst.append(letter)
-#     #print(lst)
+    vals = GetVals.func(bigDF, lst[0])
+    #print(vals)
+    lst[1] = vals[0]
+    lst.append(vals[1])
+    lst.append(vals[2])
+    lst.append(vals[3])
+    lst.append(vals[4])
+    lst.append(letter)
+    #print(lst)
         #this block writes the results to the brightness data csv file where all relevant stats are kept
-#     with open('Brightness_Data_Copy.csv', 'w', newline='') as myfile:
-#         wr = csv.writer(myfile, quoting=csv.QUOTE_ALL)
-#         wr.writerow(lst)
-# newList = []
+    with open('Brightness_Data_Test.csv', 'w', newline='') as myfile:
+        wr = csv.writer(myfile, quoting=csv.QUOTE_ALL)
+        wr.writerow(lst)
+newList = []
 
-# df = pd.DataFrame(urlList, columns=['URL', 'Median', '90th Percentile', 'Mean', 'versions', 'version2', 'ClearSky'])
-# df.to_csv("./Brightness_Data_Copy.csv", sep = ',', index = False)
+df = pd.DataFrame(urlList, columns=['URL', 'Median', '90th Percentile', 'Mean', 'versions', 'version2', 'ClearSky'])
+df.to_csv("./Brightness_Data_Test.csv", sep = ',', index = False)
 
 
 ##END OF SECTION 1
@@ -75,6 +75,17 @@ x = x.drop(['URL'], axis = 1) #drop the url column from the dataset
 # x['90th Percentile'] = literal_eval(x['90th Percentile']) 
 #x = preprocessing.normalize(x, axis=0)
 y = data['ClearSky'] #save the classification column as a variable
+
+test_data = pd.read_csv("Brightness_Data_test.csv")
+x_test_cvo = test_data.drop(['ClearSky'], axis=1) #drop the classification column from the dataset 
+urlTestCol = x_test_cvo['URL'] 
+x_test_cvo = x_test_cvo.drop(['URL'], axis = 1) #drop the url column from the dataset
+# x['90th Percentile'] = literal_eval(x['90th Percentile']) 
+#x = preprocessing.normalize(x, axis=0)
+y_test_cvo = test_data['ClearSky'] #save the classification column as a variable
+
+
+
 # for q in range(len(y)):
 #     if y[q] == 'N':
 #         newList.append(0)
@@ -128,8 +139,8 @@ trainingScores = []
 cw = {'Y': 0.9, 'N': 1.5}
 logr = LogisticRegression(class_weight=cw)
 logr.fit(x_train, y_train)
-y_pred = logr.predict(x_test)
-print('logr accuracy: ' + str(metrics.accuracy_score(y_test, y_pred)))
+y_pred = logr.predict(x_test_cvo)
+print('logr accuracy: ' + str(metrics.accuracy_score(y_test_cvo, y_pred)))
 
 #ROC Curve Display Section
 RocCurveDisplay.from_estimator(logr, x_test, y_test)
@@ -156,7 +167,7 @@ print(metrics.accuracy_score(y_test, y_pred))
 #knn = KNeighborsClassifier(n_neighbors=scores.index(max(scores)))
 #knn.fit(x_train, y_train)
     
-cm = confusion_matrix(y_test, logr.predict(x_test), normalize='true')
+cm = confusion_matrix(y_test_cvo, logr.predict(x_test_cvo), normalize='true')
 disp = ConfusionMatrixDisplay(cm, display_labels=['cloudy', 'clear'])
 disp.plot()
 plt.show()
