@@ -37,11 +37,12 @@ def makePrediction(url='', dataArray=[[]]):
     logr = LogisticRegression(class_weight=cw)
     logr.fit(x, y)
     bigDF = pd.DataFrame()
-    vals = GetVals.func(url, bigDF)
-    res = logr.predict(vals)
+    vals = GetVals.func(bigDF, url)
+    #val = np.reshape(vals, (1, -1))
+    res = logr.predict([vals])
     print(res)
 
 
-makePrediction("https://data.mangonetwork.org/data/transport/mango/archive/bdr/greenline/raw/2023/150/08/mango-bdr-greenline-20230530-082200.hdf5")
+makePrediction(url="https://data.mangonetwork.org/data/transport/mango/archive/mro/greenline/raw/2023/084/11/mango-mro-greenline-20230325-110400.hdf5")
 
 

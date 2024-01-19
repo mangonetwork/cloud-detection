@@ -22,6 +22,7 @@ from scipy.stats import spearmanr
 def func(bigDF, url='', arr=[[]]):
     #url = 'https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/237/05/mango-low-greenline-20220825-052400.hdf5'
     if (not url==''):
+        print('ok')
         r = rqs.get(url, stream=True)
         dump = r.raw
         cwd = os.getcwd()
@@ -30,11 +31,13 @@ def func(bigDF, url='', arr=[[]]):
             sh.copyfileobj(dump, location)
         file = h5.File('testfile.hdf5', 'r+')
         
-        a = file['image'] #array of values
+        arr = file['image'] #array of values
+        #print(arr)
         #emptA = []
 
     
-    a = a[100:450, 100:550]
+    a = arr[100:450, 100:550]
+    
     h = len(a[0])
     k = len(a[:, 0])
     count = 0

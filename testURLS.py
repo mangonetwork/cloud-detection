@@ -23,6 +23,11 @@ def getURL():
             ['https://data.mangonetwork.org/data/transport/mango/archive/mro/greenline/raw/2023/131/04/mango-mro-greenline-20230511-041400.hdf5', 'Y'],
             ['https://data.mangonetwork.org/data/transport/mango/archive/mro/greenline/raw/2023/246/03/mango-mro-greenline-20230903-030000.hdf5', 'Y'],
             ['https://data.mangonetwork.org/data/transport/mango/archive/mro/greenline/raw/2023/290/02/mango-mro-greenline-20231017-021800.hdf5', 'Y'],
-            ['https://data.mangonetwork.org/data/transport/mango/archive/mro/greenline/raw/2023/290/11/mango-mro-greenline-20231017-110600.hdf5', 'Y']
+            ['https://data.mangonetwork.org/data/transport/mango/archive/mro/greenline/raw/2023/290/11/mango-mro-greenline-20231017-110600.hdf5', 'Y'],
+            ['https://data.mangonetwork.org/data/transport/mango/archive/mro/greenline/raw/2023/074/03/mango-mro-greenline-20230315-032600.hdf5', 'Y'],
+            ['https://data.mangonetwork.org/data/transport/mango/archive/mro/greenline/raw/2023/057/10/mango-mro-greenline-20230226-102200.hdf5', 'Y'],
+            ['https://data.mangonetwork.org/data/transport/mango/archive/mro/greenline/raw/2023/100/03/mango-mro-greenline-20230410-032000.hdf5', 'Y'],
+            ['https://data.mangonetwork.org/data/transport/mango/archive/mro/greenline/raw/2023/087/08/mango-mro-greenline-20230328-081000.hdf5', 'Y'],
+            ['https://data.mangonetwork.org/data/transport/mango/archive/mro/greenline/raw/2023/085/05/mango-mro-greenline-20230326-050800.hdf5', 'Y']  #25 clear, 5 cloudy
             ]
     return urls
