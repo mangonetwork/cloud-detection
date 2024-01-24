@@ -40,9 +40,8 @@ def makePrediction(url='', dataArray=[[]]):
     vals = GetVals.func(bigDF, url)
     #val = np.reshape(vals, (1, -1))
     res = logr.predict([vals])
-    print(res)
+    #print(res)
+    return res
 
-
-makePrediction(url="https://data.mangonetwork.org/data/transport/mango/archive/mro/greenline/raw/2023/084/11/mango-mro-greenline-20230325-110400.hdf5")
 
 
