@@ -33,15 +33,11 @@ def makePrediction(url='', dataArray=[[]]):
     # x['90th Percentile'] = literal_eval(x['90th Percentile']) 
     #x = preprocessing.normalize(x, axis=0)
     y = data['ClearSky'] #save the classification column as a variable
-    cw = {'Y': 0.9, 'N': 1.5}
+    cw = {'Y': 0.9, 'N': 1.5} #Create the classification weights and fit
     logr = LogisticRegression(class_weight=cw)
     logr.fit(x, y)
     bigDF = pd.DataFrame()
-    vals = GetVals.func(bigDF, url)
-    #val = np.reshape(vals, (1, -1))
-    res = logr.predict([vals])
-    #print(res)
+    vals = GetVals.func(bigDF, url, arr = dataArray) #get the features for the desired url/array
+    res = logr.predict([vals]) #predict cloudy or clear
+    print(res)
     return res
-
-
-

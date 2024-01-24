@@ -1,8 +1,11 @@
 def getURL():
     urls = [['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/156/07/mango-low-greenline-20220605-071400.hdf5', 'Y'],
+  #  ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/059/11/mango-low-greenline-20220228-111200.hdf5', 'Y'],  #need 10 y 13n
+    #['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/291/09/mango-low-greenline-20221018-091000.hdf5', 'Y'],
     ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/326/03/mango-low-greenline-20221122-030600.hdf5', 'Y'],
     ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/128/07/mango-low-greenline-20220508-072600.hdf5', 'Y'],
     ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/133/10/mango-low-greenline-20220513-104600.hdf5', 'Y'],
+    #['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/135/10/mango-low-greenline-20220515-104400.hdf5', 'Y'],
     ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/137/04/mango-low-greenline-20220517-043800.hdf5', 'Y'],
     ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/139/04/mango-low-greenline-20220519-040600.hdf5', 'Y'],
     ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/147/04/mango-low-greenline-20220527-041400.hdf5', 'Y'],
@@ -88,6 +91,7 @@ def getURL():
     ['https://data.mangonetwork.org/data/transport/mango/archive/blo/greenline/raw/2022/268/08/mango-blo-greenline-20220925-083000.hdf5', 'Y'],
     ['https://data.mangonetwork.org/data/transport/mango/archive/blo/greenline/raw/2022/271/07/mango-blo-greenline-20220928-073200.hdf5', 'Y'],
     ['https://data.mangonetwork.org/data/transport/mango/archive/blo/greenline/raw/2022/233/07/mango-blo-greenline-20220821-073200.hdf5', 'Y'],
+   # ['https://data.mangonetwork.org/data/transport/mango/archive/blo/greenline/raw/2022/188/08/mango-blo-greenline-20220707-083400.hdf5', 'Y'],
     ['https://data.mangonetwork.org/data/transport/mango/archive/blo/greenline/raw/2022/185/07/mango-blo-greenline-20220704-072800.hdf5', 'Y'],
 
     #BDR Data
