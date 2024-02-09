@@ -43,6 +43,7 @@ for lst in urlList:
     #print(lst[0])
 
         #vals is the function that analyses each image and calculates each relevant feature
+    
     vals = GetVals.func(bigDF, lst[0])
     #print(vals)
     lst[1] = vals[0]
