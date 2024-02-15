@@ -41,3 +41,4 @@ def makePrediction(url='', dataArray=[[]]):
     res = logr.predict([vals]) #predict cloudy or clear
     print(res)
     return res
+makePrediction(url = 'https://data.mangonetwork.org/data/transport/mango/archive/mro/greenline/raw/2023/233/03/mango-mro-greenline-20230821-032000.hdf5')
