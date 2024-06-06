@@ -23,7 +23,6 @@ import heapq
 from sklearn.metrics import RocCurveDisplay
 from sklearn.preprocessing import LabelBinarizer
 import testURLS
-import scipy
 
 
 
@@ -65,16 +64,6 @@ df.to_csv("./Brightness_Data_Copy.csv", sep = ',', index = False)
 
 
 ##END OF SECTION 1
-lst = np.zeros((350, 450))
-lst[349, 3] = 1
-inverted = scipy.fft.ifft2(lst)
-#inverted = abs(inverted)
-inverted =  inverted.real
-plt.imshow(inverted)
-plt.show()
-
-
-
 
 
 ##SECTION 2: 
@@ -93,52 +82,46 @@ urlColTest = xTest['URL']
 xTest = xTest.drop(['URL'], axis = 1) #drop the url column from the dataset
 yTest = dataTest['ClearSky'] #save the classification column as a variable
 
+newList = []
 
 
-# newList = []
+for q in range(len(y)):
+    if y[q] == 'N':
+        newList.append(0)
+    else:
+        newList.append(1)
+
+res =[]
+for d in range(len(bigDF.index)):
+    b = bigDF.iloc[d].to_numpy()
+    #print(b)
+    #print(np.corrcoef(newList, b))
+    if np.corrcoef(newList, b)[0][1] >= 0.55:
+         print(d)
+    res.append(np.corrcoef(newList, b)[0][1])
+#print(res.index(min(res)))
 
 
-# for q in range(len(y)):
-#     if y[q] == 'N':
-#         newList.append(0)
-#     else:
-#         newList.append(1)
-
-# res =[]
-# for d in range(len(bigDF.index)):
-#     b = bigDF.iloc[d].to_numpy()
-#     #print(b)
-#     #print(np.corrcoef(newList, b))
-#     if np.corrcoef(newList, b)[0][1] <= -0.55:
-#          print(d)
-#          print(np.corrcoef(newList, b)[0][1])
-#     res.append(np.corrcoef(newList, b)[0][1])
-# # #print(res.index(min(res)))
-
-
-x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.4, random_state=0) #split the dataset into a test/train duo for fitting (60% of data) and evaluating fit quality (40% of data). Consistent random state is used to ensure testing is consistent 
+x_train, x_test, y_train, y_test = train_test_split(xTest, yTest, test_size=0.4, random_state=0) #split the dataset into a test/train duo for fitting (60% of data) and evaluating fit quality (40% of data). Consistent random state is used to ensure testing is consistent 
 k_range = list(range(1,26)) #this list is used to generate a plot of the test accuracy depending on the number of nearest neighbors (k). 25 is chosen as the limit rather arbitrarily, but anything beyond 25 is usually victim to overfitting
 scores = []
 trainingScores = []
 
 
 #As an alternative to the KNN 'lazy' prediction, this block tests logistic regression on the same train/test set as knn
-cw = {'Y': 1.0, 'N': 1.65}
+cw = {'Y': 0., 'N': 1.5}
 logr = LogisticRegression(class_weight=cw)
 logr.fit(x_train, y_train)
 y_pred = logr.predict(x_test)
 y_test_pred = logr.predict(xTest)
-print(y.shape)
-print(y_pred.shape)
-print('logr accuracy: ' + str(metrics.accuracy_score(y_test, y_pred)))
+print('logr accuracy: ' + str(metrics.accuracy_score(yTest, y_test_pred)))
 
 #ROC Curve Display Section
-plt.rcParams.update({'font.size': 15})
-RocCurveDisplay.from_estimator(logr, x, y)
+RocCurveDisplay.from_estimator(logr, xTest, yTest)
 plt.show()
 
 #Confusion Matrix Display
-cm = confusion_matrix(y, logr.predict(x), normalize='true')
+cm = confusion_matrix(yTest, logr.predict(xTest), normalize='true')
 disp = ConfusionMatrixDisplay(cm, display_labels=['cloudy', 'clear'])
 disp.plot()
 plt.show()

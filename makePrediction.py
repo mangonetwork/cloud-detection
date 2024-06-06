@@ -39,6 +39,5 @@ def makePrediction(url='', dataArray=[[]]):
     bigDF = pd.DataFrame()
     vals = GetVals.func(bigDF, url, arr = dataArray) #get the features for the desired url/array
     res = logr.predict([vals]) #predict cloudy or clear
-    print(res)
     return res
-makePrediction(url = 'https://data.mangonetwork.org/data/transport/mango/archive/mro/greenline/raw/2023/233/03/mango-mro-greenline-20230821-032000.hdf5')
+#makePrediction(url = 'https://data.mangonetwork.org/data/transport/mango/archive/mro/greenline/raw/2023/233/03/mango-mro-greenline-20230821-032000.hdf5')

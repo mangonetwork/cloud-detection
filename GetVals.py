@@ -28,7 +28,6 @@ def func(bigDF, url='', arr=[[]]):
         with open('testfile.hdf5', 'wb') as location:
             sh.copyfileobj(dump, location)
         file = h5.File('testfile.hdf5', 'r+')
-        
         arr = file['image'] #array of values
 
     
@@ -58,4 +57,19 @@ def func(bigDF, url='', arr=[[]]):
         
     d = d.real #we use d.real to dispose of the 0j value still present after using abs
     bigDF[url] = np.ndarray.flatten(d) 
-    return [np.mean(dataPoints), d[1][3], d[349][0], d[28][449], d[349][3]] #mean of datapoints and the most significant fourier features are returned
+    #print(len(d[0]))
+
+
+
+
+    return [np.mean(dataPoints), d[1][3], d[349][0], d[28][449], d[349][3]] #mean of datapoints and the most significant fourier features are returned, greenline
+    #return [np.mean(dataPoints), d[0][5], d[63][425], d[39][128], d[311][322]] #redline #
+
+#453
+#896
+#897
+#157053
+#157054
+#157497
+# 450
+# 157050
