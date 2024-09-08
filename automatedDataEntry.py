@@ -65,13 +65,15 @@ df.to_csv("./Brightness_Data_Copy.csv", sep = ',', index = False)
 
 
 ##END OF SECTION 1
-lst = np.zeros((350, 450))
-lst[349, 3] = 1
-inverted = scipy.fft.ifft2(lst)
-#inverted = abs(inverted)
-inverted =  inverted.real
-plt.imshow(inverted)
-plt.show()
+
+#THIS PART DISPLAYS A SELECT FOURIER FEATURE AS A PATTERN
+# lst = np.zeros((350, 450))
+# lst[349, 3] = 1
+# inverted = scipy.fft.ifft2(lst)
+# #inverted = abs(inverted)
+# inverted =  inverted.real
+# plt.imshow(inverted)
+# plt.show()
 
 
 
