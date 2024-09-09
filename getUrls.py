@@ -233,7 +233,25 @@ def getURL():
     ['https://data.mangonetwork.org/data/transport/mango/archive/cfs/redline/raw/2024/120/09/mango-cfs-redline-20240429-090800.hdf5', 'Y'],
     ['https://data.mangonetwork.org/data/transport/mango/archive/cfs/redline/raw/2024/123/06/mango-cfs-redline-20240502-064400.hdf5', 'Y'],
     ['https://data.mangonetwork.org/data/transport/mango/archive/cfs/redline/raw/2023/283/09/mango-cfs-redline-20231010-094400.hdf5', 'Y'],
-    ['https://data.mangonetwork.org/data/transport/mango/archive/cfs/redline/raw/2023/259/07/mango-cfs-redline-20230916-071200.hdf5', 'Y']
+    ['https://data.mangonetwork.org/data/transport/mango/archive/cfs/redline/raw/2023/259/07/mango-cfs-redline-20230916-071200.hdf5', 'Y'], #35 red here
+
+    ['https://data.mangonetwork.org/data/transport/mango/archive/cfs/redline/raw/2023/181/09/mango-cfs-redline-20230630-093600.hdf5', 'Y'],
+    ['https://data.mangonetwork.org/data/transport/mango/archive/cfs/redline/raw/2023/162/08/mango-cfs-redline-20230611-084800.hdf5', 'Y'],
+    ['https://data.mangonetwork.org/data/transport/mango/archive/cfs/redline/raw/2022/321/02/mango-cfs-redline-20221117-024000.hdf5', 'Y'],
+    ['https://data.mangonetwork.org/data/transport/mango/archive/cfs/redline/raw/2022/305/07/mango-cfs-redline-20221101-073600.hdf5', 'Y'],
+    ['https://data.mangonetwork.org/data/transport/mango/archive/cfs/redline/raw/2022/295/09/mango-cfs-redline-20221022-092400.hdf5', 'Y'],
+    ['https://data.mangonetwork.org/data/transport/mango/archive/cfs/redline/raw/2022/233/04/mango-cfs-redline-20220821-041600.hdf5', 'N'], #check clarity on this one
+    ['https://data.mangonetwork.org/data/transport/mango/archive/cfs/redline/raw/2022/196/06/mango-cfs-redline-20220715-062400.hdf5', 'N'], #check clarity on this one
+    ['https://data.mangonetwork.org/data/transport/mango/archive/cfs/redline/raw/2022/152/05/mango-cfs-redline-20220601-050400.hdf5', 'N'], #check clarity on this one
+    ['https://data.mangonetwork.org/data/transport/mango/archive/cfs/redline/raw/2022/088/03/mango-cfs-redline-20220329-031600.hdf5', 'N'],
+    ['https://data.mangonetwork.org/data/transport/mango/archive/cfs/redline/raw/2022/001/02/mango-cfs-redline-20220101-023200.hdf5', 'N'], #45 here and check quality (jan 01/2022 is image date) 
+
+    ['https://data.mangonetwork.org/data/transport/mango/archive/cfs/redline/raw/2022/082/03/mango-cfs-redline-20220323-033200.hdf5', 'Y']
+
+
+
+
+
 
 
 
