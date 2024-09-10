@@ -16,7 +16,7 @@ import math
 import scipy
 from scipy.stats import spearmanr
 
-url = 'https://data.mangonetwork.org/data/transport/mango/archive/cfs/redline/raw/2022/001/02/mango-cfs-redline-20220101-023200.hdf5'
+url = 'https://data.mangonetwork.org/data/transport/mango/archive/cfs/redline/raw/2023/173/08/mango-cfs-redline-20230622-080800.hdf5'
 r = rqs.get(url, stream=True)
 dump = r.raw
 cwd = os.getcwd()
