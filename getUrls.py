@@ -246,7 +246,18 @@ def getURL():
     ['https://data.mangonetwork.org/data/transport/mango/archive/cfs/redline/raw/2022/088/03/mango-cfs-redline-20220329-031600.hdf5', 'N'],
     ['https://data.mangonetwork.org/data/transport/mango/archive/cfs/redline/raw/2022/001/02/mango-cfs-redline-20220101-023200.hdf5', 'N'], #45 here and check quality (jan 01/2022 is image date) 
 
-    ['https://data.mangonetwork.org/data/transport/mango/archive/cfs/redline/raw/2022/082/03/mango-cfs-redline-20220323-033200.hdf5', 'Y']
+    ['https://data.mangonetwork.org/data/transport/mango/archive/cfs/redline/raw/2022/082/03/mango-cfs-redline-20220323-033200.hdf5', 'Y'], #Started here sept 9
+    ['https://data.mangonetwork.org/data/transport/mango/archive/cfs/redline/raw/2021/364/05/mango-cfs-redline-20211230-051600.hdf5', 'Y'],
+    ['https://data.mangonetwork.org/data/transport/mango/archive/cfs/redline/raw/2021/334/05/mango-cfs-redline-20211130-052000.hdf5', 'Y'],
+    ['https://data.mangonetwork.org/data/transport/mango/archive/cfs/redline/raw/2021/299/04/mango-cfs-redline-20211026-045600.hdf5', 'N'], #this one has many visible stars, but if it isn't like 100% CLEAR, it isn't clear
+    ['https://data.mangonetwork.org/data/transport/mango/archive/cfs/redline/raw/2021/275/08/mango-cfs-redline-20211002-080400.hdf5', 'Y'],
+    ['https://data.mangonetwork.org/data/transport/mango/archive/cfs/redline/raw/2021/243/09/mango-cfs-redline-20210831-091200.hdf5', 'N'], 
+    ['https://data.mangonetwork.org/data/transport/mango/archive/cfs/redline/raw/2021/228/07/mango-cfs-redline-20210816-075200.hdf5', 'Y'],
+    ['https://data.mangonetwork.org/data/transport/mango/archive/cfs/redline/raw/2023/112/03/mango-cfs-redline-20230422-034400.hdf5', 'N'],
+    ['https://data.mangonetwork.org/data/transport/mango/archive/cfs/redline/raw/2023/138/07/mango-cfs-redline-20230518-074800.hdf5', 'N'], #review this, 55 here
+
+    ['https://data.mangonetwork.org/data/transport/mango/archive/cfs/redline/raw/2023/173/08/mango-cfs-redline-20230622-080800.hdf5', 'Y']
+
 
 
 
