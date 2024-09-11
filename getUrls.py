@@ -256,7 +256,12 @@ def getURL():
     ['https://data.mangonetwork.org/data/transport/mango/archive/cfs/redline/raw/2023/112/03/mango-cfs-redline-20230422-034400.hdf5', 'N'],
     ['https://data.mangonetwork.org/data/transport/mango/archive/cfs/redline/raw/2023/138/07/mango-cfs-redline-20230518-074800.hdf5', 'N'], #review this, 55 here
 
-    ['https://data.mangonetwork.org/data/transport/mango/archive/cfs/redline/raw/2023/173/08/mango-cfs-redline-20230622-080800.hdf5', 'Y']
+    ['https://data.mangonetwork.org/data/transport/mango/archive/cfs/redline/raw/2023/173/08/mango-cfs-redline-20230622-080800.hdf5', 'Y'], #Started here sept 10
+    ['https://data.mangonetwork.org/data/transport/mango/archive/cfs/redline/raw/2023/204/09/mango-cfs-redline-20230723-092000.hdf5', 'Y'],
+    ['https://data.mangonetwork.org/data/transport/mango/archive/cfs/redline/raw/2023/252/07/mango-cfs-redline-20230909-071200.hdf5', 'Y'],
+    ['https://data.mangonetwork.org/data/transport/mango/archive/cfs/redline/raw/2023/316/06/mango-cfs-redline-20231112-065600.hdf5', 'Y'],
+    ['https://data.mangonetwork.org/data/transport/mango/archive/cfs/redline/raw/2023/351/07/mango-cfs-redline-20231217-072800.hdf5', 'Y'] #Here. Need more cloudy images
+
 
 
 
