@@ -260,7 +260,12 @@ def getURL():
     ['https://data.mangonetwork.org/data/transport/mango/archive/cfs/redline/raw/2023/204/09/mango-cfs-redline-20230723-092000.hdf5', 'Y'],
     ['https://data.mangonetwork.org/data/transport/mango/archive/cfs/redline/raw/2023/252/07/mango-cfs-redline-20230909-071200.hdf5', 'Y'],
     ['https://data.mangonetwork.org/data/transport/mango/archive/cfs/redline/raw/2023/316/06/mango-cfs-redline-20231112-065600.hdf5', 'Y'],
-    ['https://data.mangonetwork.org/data/transport/mango/archive/cfs/redline/raw/2023/351/07/mango-cfs-redline-20231217-072800.hdf5', 'Y'] #Here. Need more cloudy images
+    ['https://data.mangonetwork.org/data/transport/mango/archive/cfs/redline/raw/2023/351/07/mango-cfs-redline-20231217-072800.hdf5', 'Y'], #60 Here. Need more cloudy images
+    ['https://data.mangonetwork.org/data/transport/mango/archive/cfs/redline/raw/2023/357/02/mango-cfs-redline-20231223-022400.hdf5', 'N'],
+    ['https://data.mangonetwork.org/data/transport/mango/archive/cfs/redline/raw/2024/033/06/mango-cfs-redline-20240202-064800.hdf5', 'N'],
+    ['https://data.mangonetwork.org/data/transport/mango/archive/cfs/redline/raw/2024/068/03/mango-cfs-redline-20240308-033200.hdf5', 'N'], #while the stars are still relatively clear, this is a good example of a median image, in which case we lean to N
+    ['https://data.mangonetwork.org/data/transport/mango/archive/cfs/redline/raw/2024/253/06/mango-cfs-redline-20240909-061600.hdf5', 'N'],
+    ['https://data.mangonetwork.org/data/transport/mango/archive/cfs/redline/raw/2024/118/05/mango-cfs-redline-20240427-051600.hdf5', 'N'] #Another median image. 65 here. Change site
 
 
 
