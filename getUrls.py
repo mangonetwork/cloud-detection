@@ -265,7 +265,21 @@ def getURL():
     ['https://data.mangonetwork.org/data/transport/mango/archive/cfs/redline/raw/2024/033/06/mango-cfs-redline-20240202-064800.hdf5', 'N'],
     ['https://data.mangonetwork.org/data/transport/mango/archive/cfs/redline/raw/2024/068/03/mango-cfs-redline-20240308-033200.hdf5', 'N'], #while the stars are still relatively clear, this is a good example of a median image, in which case we lean to N
     ['https://data.mangonetwork.org/data/transport/mango/archive/cfs/redline/raw/2024/253/06/mango-cfs-redline-20240909-061600.hdf5', 'N'],
-    ['https://data.mangonetwork.org/data/transport/mango/archive/cfs/redline/raw/2024/118/05/mango-cfs-redline-20240427-051600.hdf5', 'N'] #Another median image. 65 here. Change site
+    ['https://data.mangonetwork.org/data/transport/mango/archive/cfs/redline/raw/2024/118/05/mango-cfs-redline-20240427-051600.hdf5', 'N'], #Another median image. 65 here. Change site
+    #Site PAR
+    ['https://data.mangonetwork.org/data/transport/mango/archive/par/redline/raw/2024/205/03/mango-par-redline-20240723-035600.hdf5', 'N'], #Started here sept 12
+    ['https://data.mangonetwork.org/data/transport/mango/archive/par/redline/raw/2024/157/02/mango-par-redline-20240605-024800.hdf5', 'N'], #light example
+    ['https://data.mangonetwork.org/data/transport/mango/archive/par/redline/raw/2024/123/04/mango-par-redline-20240502-041200.hdf5', 'Y'],
+    ['https://data.mangonetwork.org/data/transport/mango/archive/par/redline/raw/2024/120/02/mango-par-redline-20240429-020800.hdf5', 'N'],
+    ['https://data.mangonetwork.org/data/transport/mango/archive/par/redline/raw/2024/086/01/mango-par-redline-20240326-015200.hdf5', 'N'],
+    ['https://data.mangonetwork.org/data/transport/mango/archive/par/redline/raw/2024/031/05/mango-par-redline-20240131-052800.hdf5', 'N'],
+    ['https://data.mangonetwork.org/data/transport/mango/archive/par/redline/raw/2023/230/07/mango-par-redline-20230818-074800.hdf5', 'Y'],
+    ['https://data.mangonetwork.org/data/transport/mango/archive/par/redline/raw/2023/164/07/mango-par-redline-20230613-070400.hdf5', 'Y'],
+    ['https://data.mangonetwork.org/data/transport/mango/archive/par/redline/raw/2023/313/05/mango-par-redline-20231109-050000.hdf5', 'Y'], #Not great
+    ['https://data.mangonetwork.org/data/transport/mango/archive/par/redline/raw/2023/343/06/mango-par-redline-20231209-060400.hdf5', 'Y'], #75 here
+
+    ['https://data.mangonetwork.org/data/transport/mango/archive/par/redline/raw/2023/364/02/mango-par-redline-20231230-021600.hdf5', 'N'], 
+    ['https://data.mangonetwork.org/data/transport/mango/archive/par/redline/raw/2022/230/06/mango-par-redline-20220818-063200.hdf5', 'N']
 
 
 
