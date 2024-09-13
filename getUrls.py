@@ -224,6 +224,7 @@ def getURL():
     ['https://data.mangonetwork.org/data/transport/mango/archive/cvo/redline/raw/2022/360/04/mango-cvo-redline-20221226-043200.hdf5', 'N'],
 
     #Below this line are images added for publication (unify red-green algoritm)
+    #Site CFS, Utah
     ['https://data.mangonetwork.org/data/transport/mango/archive/cfs/redline/raw/2024/246/03/mango-cfs-redline-20240902-032800.hdf5', 'N'], #Started Here Sept 8
     ['https://data.mangonetwork.org/data/transport/mango/archive/cfs/redline/raw/2024/244/07/mango-cfs-redline-20240831-074000.hdf5', 'Y'],
     ['https://data.mangonetwork.org/data/transport/mango/archive/cfs/redline/raw/2024/236/04/mango-cfs-redline-20240823-041200.hdf5', 'N'], #don't remove this one, great cloudy example, check video footage
@@ -266,7 +267,7 @@ def getURL():
     ['https://data.mangonetwork.org/data/transport/mango/archive/cfs/redline/raw/2024/068/03/mango-cfs-redline-20240308-033200.hdf5', 'N'], #while the stars are still relatively clear, this is a good example of a median image, in which case we lean to N
     ['https://data.mangonetwork.org/data/transport/mango/archive/cfs/redline/raw/2024/253/06/mango-cfs-redline-20240909-061600.hdf5', 'N'],
     ['https://data.mangonetwork.org/data/transport/mango/archive/cfs/redline/raw/2024/118/05/mango-cfs-redline-20240427-051600.hdf5', 'N'], #Another median image. 65 here. Change site
-    #Site PAR
+    #Site PAR, North Carolina
     ['https://data.mangonetwork.org/data/transport/mango/archive/par/redline/raw/2024/205/03/mango-par-redline-20240723-035600.hdf5', 'N'], #Started here sept 12
     ['https://data.mangonetwork.org/data/transport/mango/archive/par/redline/raw/2024/157/02/mango-par-redline-20240605-024800.hdf5', 'N'], #light example
     ['https://data.mangonetwork.org/data/transport/mango/archive/par/redline/raw/2024/123/04/mango-par-redline-20240502-041200.hdf5', 'Y'],
@@ -279,7 +280,16 @@ def getURL():
     ['https://data.mangonetwork.org/data/transport/mango/archive/par/redline/raw/2023/343/06/mango-par-redline-20231209-060400.hdf5', 'Y'], #75 here
 
     ['https://data.mangonetwork.org/data/transport/mango/archive/par/redline/raw/2023/364/02/mango-par-redline-20231230-021600.hdf5', 'N'], 
-    ['https://data.mangonetwork.org/data/transport/mango/archive/par/redline/raw/2022/230/06/mango-par-redline-20220818-063200.hdf5', 'N']
+    ['https://data.mangonetwork.org/data/transport/mango/archive/par/redline/raw/2022/230/06/mango-par-redline-20220818-063200.hdf5', 'N'],
+    #Site EIO, Iowa
+    ['https://data.mangonetwork.org/data/transport/mango/archive/eio/redline/raw/2022/249/02/mango-eio-redline-20220906-024000.hdf5', 'N'],
+    ['https://data.mangonetwork.org/data/transport/mango/archive/eio/redline/raw/2022/269/02/mango-eio-redline-20220926-020800.hdf5', 'Y'], #dirt on the lens. TBD what to do with this type of image. Issue is present with all images at this site
+    ['https://data.mangonetwork.org/data/transport/mango/archive/eio/redline/raw/2022/299/07/mango-eio-redline-20221026-073600.hdf5', 'Y'],
+    ['https://data.mangonetwork.org/data/transport/mango/archive/eio/redline/raw/2022/326/05/mango-eio-redline-20221122-052000.hdf5', 'Y'],
+    ['https://data.mangonetwork.org/data/transport/mango/archive/eio/redline/raw/2023/104/04/mango-eio-redline-20230414-042000.hdf5', 'Y'],
+    ['https://data.mangonetwork.org/data/transport/mango/archive/eio/redline/raw/2023/169/06/mango-eio-redline-20230618-060000.hdf5', 'N'],
+    ['https://data.mangonetwork.org/data/transport/mango/archive/eio/redline/raw/2023/203/08/mango-eio-redline-20230722-084000.hdf5', 'Y'],
+    ['https://data.mangonetwork.org/data/transport/mango/archive/eio/redline/raw/2023/237/03/mango-eio-redline-20230825-030800.hdf5', 'N'] #85 here. moon maybe present here? Review if it causes an issue. 
 
 
 
