@@ -311,7 +311,19 @@ def getURL():
     ['https://data.mangonetwork.org/data/transport/mango/archive/mto/redline/raw/2023/102/05/mango-mto-redline-20230412-053200.hdf5', 'Y'],
     ['https://data.mangonetwork.org/data/transport/mango/archive/mto/redline/raw/2023/251/03/mango-mto-redline-20230908-034000.hdf5', 'N'],
     ['https://data.mangonetwork.org/data/transport/mango/archive/mto/redline/raw/2023/206/05/mango-mto-redline-20230725-053200.hdf5', 'Y'],
-    ['https://data.mangonetwork.org/data/transport/mango/archive/mto/redline/raw/2024/060/03/mango-mto-redline-20240229-032400.hdf5', 'Y'] #105 Here. 
+    ['https://data.mangonetwork.org/data/transport/mango/archive/mto/redline/raw/2024/060/03/mango-mto-redline-20240229-032400.hdf5', 'Y'], #105 Here. 
+    
+    ['https://data.mangonetwork.org/data/transport/mango/archive/mto/redline/raw/2024/243/06/mango-mto-redline-20240830-064000.hdf5', 'Y'],
+    ['https://data.mangonetwork.org/data/transport/mango/archive/mto/redline/raw/2024/215/07/mango-mto-redline-20240802-072400.hdf5', 'Y'],
+    ['https://data.mangonetwork.org/data/transport/mango/archive/mto/redline/raw/2024/198/06/mango-mto-redline-20240716-065600.hdf5', 'N'],
+    ['https://data.mangonetwork.org/data/transport/mango/archive/mto/redline/raw/2024/193/07/mango-mto-redline-20240711-074400.hdf5', 'Y'],
+    ['https://data.mangonetwork.org/data/transport/mango/archive/mto/redline/raw/2024/188/07/mango-mto-redline-20240706-073200.hdf5', 'Y'],
+    ['https://data.mangonetwork.org/data/transport/mango/archive/mto/redline/raw/2024/183/07/mango-mto-redline-20240701-071600.hdf5', 'N'],
+    ['https://data.mangonetwork.org/data/transport/mango/archive/mto/redline/raw/2024/174/06/mango-mto-redline-20240622-060000.hdf5', 'N'],
+    ['https://data.mangonetwork.org/data/transport/mango/archive/mto/redline/raw/2024/162/06/mango-mto-redline-20240610-064800.hdf5', 'Y'],
+    ['https://data.mangonetwork.org/data/transport/mango/archive/mto/redline/raw/2024/156/07/mango-mto-redline-20240604-070800.hdf5', 'N'],
+    ['https://data.mangonetwork.org/data/transport/mango/archive/mto/redline/raw/2024/137/05/mango-mto-redline-20240516-052400.hdf5', 'N'] #115 Here.
+
 
 
 
