@@ -289,7 +289,18 @@ def getURL():
     ['https://data.mangonetwork.org/data/transport/mango/archive/eio/redline/raw/2023/104/04/mango-eio-redline-20230414-042000.hdf5', 'Y'],
     ['https://data.mangonetwork.org/data/transport/mango/archive/eio/redline/raw/2023/169/06/mango-eio-redline-20230618-060000.hdf5', 'N'],
     ['https://data.mangonetwork.org/data/transport/mango/archive/eio/redline/raw/2023/203/08/mango-eio-redline-20230722-084000.hdf5', 'Y'],
-    ['https://data.mangonetwork.org/data/transport/mango/archive/eio/redline/raw/2023/237/03/mango-eio-redline-20230825-030800.hdf5', 'N'] #85 here. moon maybe present here? Review if it causes an issue. 
+    ['https://data.mangonetwork.org/data/transport/mango/archive/eio/redline/raw/2023/237/03/mango-eio-redline-20230825-030800.hdf5', 'N'], #85 here. moon maybe present here? Review if it causes an issue. 
+    #Site MTO, North Dakota
+    ['https://data.mangonetwork.org/data/transport/mango/archive/mto/redline/raw/2024/258/03/mango-mto-redline-20240914-033600.hdf5', 'N'],
+    ['https://data.mangonetwork.org/data/transport/mango/archive/mto/redline/raw/2024/222/05/mango-mto-redline-20240809-050800.hdf5', 'Y'],
+    ['https://data.mangonetwork.org/data/transport/mango/archive/mto/redline/raw/2024/212/05/mango-mto-redline-20240730-052400.hdf5', 'N'],
+    ['https://data.mangonetwork.org/data/transport/mango/archive/mto/redline/raw/2024/165/07/mango-mto-redline-20240613-071200.hdf5', 'N'],
+    ['https://data.mangonetwork.org/data/transport/mango/archive/mto/redline/raw/2024/148/07/mango-mto-redline-20240527-072400.hdf5', 'N'],
+    ['https://data.mangonetwork.org/data/transport/mango/archive/mto/redline/raw/2024/100/05/mango-mto-redline-20240409-052000.hdf5', 'Y'],
+    ['https://data.mangonetwork.org/data/transport/mango/archive/mto/redline/raw/2024/088/03/mango-mto-redline-20240328-034000.hdf5', 'Y'],
+    ['https://data.mangonetwork.org/data/transport/mango/archive/mto/redline/raw/2024/032/04/mango-mto-redline-20240201-041200.hdf5', 'Y'],
+    ['https://data.mangonetwork.org/data/transport/mango/archive/mto/redline/raw/2023/337/01/mango-mto-redline-20231203-014400.hdf5', 'Y'], #Is october 31 2023 an aurora? Didn't include, but check it out I guess
+    ['https://data.mangonetwork.org/data/transport/mango/archive/mto/redline/raw/2023/291/02/mango-mto-redline-20231018-020400.hdf5', 'N'] #95 here. Debatably cloudy, but bottom half was covered pretty well so I think it counts. If it isn't obviously clear, it's cloudy
 
 
 
