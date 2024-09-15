@@ -322,7 +322,18 @@ def getURL():
     ['https://data.mangonetwork.org/data/transport/mango/archive/mto/redline/raw/2024/174/06/mango-mto-redline-20240622-060000.hdf5', 'N'],
     ['https://data.mangonetwork.org/data/transport/mango/archive/mto/redline/raw/2024/162/06/mango-mto-redline-20240610-064800.hdf5', 'Y'],
     ['https://data.mangonetwork.org/data/transport/mango/archive/mto/redline/raw/2024/156/07/mango-mto-redline-20240604-070800.hdf5', 'N'],
-    ['https://data.mangonetwork.org/data/transport/mango/archive/mto/redline/raw/2024/137/05/mango-mto-redline-20240516-052400.hdf5', 'N'] #115 Here.
+    ['https://data.mangonetwork.org/data/transport/mango/archive/mto/redline/raw/2024/137/05/mango-mto-redline-20240516-052400.hdf5', 'N'], #115 Here.
+    #Site PAR, North Carolina
+    ['https://data.mangonetwork.org/data/transport/mango/archive/par/redline/raw/2024/150/04/mango-par-redline-20240529-040000.hdf5', 'Y'],
+    ['https://data.mangonetwork.org/data/transport/mango/archive/par/redline/raw/2024/181/05/mango-par-redline-20240629-052800.hdf5', 'N'],
+    ['https://data.mangonetwork.org/data/transport/mango/archive/par/redline/raw/2024/193/08/mango-par-redline-20240711-080800.hdf5', 'Y'],
+    ['https://data.mangonetwork.org/data/transport/mango/archive/par/redline/raw/2024/242/03/mango-par-redline-20240829-032000.hdf5', 'N'],
+    ['https://data.mangonetwork.org/data/transport/mango/archive/par/redline/raw/2024/253/01/mango-par-redline-20240909-013200.hdf5', 'N'],
+    ['https://data.mangonetwork.org/data/transport/mango/archive/par/redline/raw/2024/017/05/mango-par-redline-20240117-051600.hdf5', 'Y'],
+    ['https://data.mangonetwork.org/data/transport/mango/archive/par/redline/raw/2024/012/03/mango-par-redline-20240112-030400.hdf5', 'Y'],
+    ['https://data.mangonetwork.org/data/transport/mango/archive/par/redline/raw/2024/005/03/mango-par-redline-20240105-033200.hdf5', 'Y'],
+    ['https://data.mangonetwork.org/data/transport/mango/archive/par/redline/raw/2023/337/00/mango-par-redline-20231203-003200.hdf5', 'N'], #Iffy
+    ['https://data.mangonetwork.org/data/transport/mango/archive/par/redline/raw/2023/278/01/mango-par-redline-20231005-010800.hdf5', 'N'] #125 Here.
 
 
 
