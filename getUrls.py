@@ -344,7 +344,18 @@ def getURL():
     ['https://data.mangonetwork.org/data/transport/mango/archive/par/redline/raw/2023/098/03/mango-par-redline-20230408-033600.hdf5', 'N'],
     ['https://data.mangonetwork.org/data/transport/mango/archive/par/redline/raw/2023/075/04/mango-par-redline-20230316-040400.hdf5', 'Y'],
     ['https://data.mangonetwork.org/data/transport/mango/archive/par/redline/raw/2023/072/01/mango-par-redline-20230313-012800.hdf5', 'N'],
-    ['https://data.mangonetwork.org/data/transport/mango/archive/par/redline/raw/2023/052/02/mango-par-redline-20230221-025600.hdf5', 'N'] #135 Here. Maybe check it? Faint dots are not stars on this, check video to be sure
+    ['https://data.mangonetwork.org/data/transport/mango/archive/par/redline/raw/2023/052/02/mango-par-redline-20230221-025600.hdf5', 'N'], #135 Here. Maybe check it? Faint dots are not stars on this, check video to be sure
+#https://www.mangonetwork.org/mango/v1/database/sites/par/redline/2022-09-29 What is this lol
+    ['https://data.mangonetwork.org/data/transport/mango/archive/par/redline/raw/2023/049/02/mango-par-redline-20230218-024800.hdf5', 'Y'], #Sept 17 Start
+    ['https://data.mangonetwork.org/data/transport/mango/archive/par/redline/raw/2023/047/01/mango-par-redline-20230216-010000.hdf5', 'N'],
+    ['https://data.mangonetwork.org/data/transport/mango/archive/par/redline/raw/2023/041/00/mango-par-redline-20230210-005200.hdf5', 'N'],
+    ['https://data.mangonetwork.org/data/transport/mango/archive/par/redline/raw/2023/027/04/mango-par-redline-20230127-043600.hdf5', 'Y'],
+    ['https://data.mangonetwork.org/data/transport/mango/archive/par/redline/raw/2023/015/04/mango-par-redline-20230115-040400.hdf5', 'Y'],
+    ['https://data.mangonetwork.org/data/transport/mango/archive/par/redline/raw/2023/012/00/mango-par-redline-20230112-004800.hdf5', 'N'], #Very clearly cloudy. Small faded dots are NOT stars
+    ['https://data.mangonetwork.org/data/transport/mango/archive/par/redline/raw/2022/356/02/mango-par-redline-20221222-020400.hdf5', 'N'],
+    ['https://data.mangonetwork.org/data/transport/mango/archive/par/redline/raw/2022/354/06/mango-par-redline-20221220-065600.hdf5', 'N'],
+    ['https://data.mangonetwork.org/data/transport/mango/archive/par/redline/raw/2022/302/02/mango-par-redline-20221029-022400.hdf5', 'Y'],
+    ['https://data.mangonetwork.org/data/transport/mango/archive/par/redline/raw/2022/358/03/mango-par-redline-20221224-034000.hdf5', 'Y'] #145 here
 
 
 

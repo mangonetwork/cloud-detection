@@ -38,7 +38,32 @@ bigDF = pd.DataFrame()
 ##SECTION 1: USING GETVALS.PY TO ACQUIRE ALL THE NECESSARY DATA. UNCOMMENT THIS SECTION TO RECOLLECT DATA
 
 #       this for loop is what collects the data, iteraing through GETURLS.py which is a list of the desired images
-# 
+for lst in urlList:
+    
+    letter = lst[1]
+    #print(lst[0])
+
+        #vals is the function that analyses each image and calculates each relevant feature
+    
+    vals = GetVals.func(bigDF, lst[0])
+    #print(vals)
+    lst[1] = vals[0]
+    lst.append(vals[1])
+    lst.append(vals[2])
+    lst.append(vals[3])
+    lst.append(vals[4])
+    lst.append(letter)
+    #print(lst)
+       # this block writes the results to the brightness data csv file where all relevant stats are kept
+    with open('Brightness_Data_Copy.csv', 'w', newline='') as myfile:
+        wr = csv.writer(myfile, quoting=csv.QUOTE_ALL)
+        wr.writerow(lst)
+newList = []
+
+df = pd.DataFrame(urlList, columns=['URL', 'Median', '90th Percentile', 'Mean', 'versions', 'version2', 'ClearSky'])
+df.to_csv("./Brightness_Data_Copy.csv", sep = ',', index = False)
+
+
 ##END OF SECTION 1
 
 #THIS PART DISPLAYS A SELECT FOURIER FEATURE AS A PATTERN
@@ -94,36 +119,36 @@ yTest = dataTest['ClearSky'] #save the classification column as a variable
 
 max_score = 0.0
 avg = []
-# for j in range(1,10):
-#     summ = 0
-#     for i in range(1, 10000):
-x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.3, random_state=0) #split the dataset into a test/train duo for fitting (60% of data) and evaluating fit quality (40% of data). Consistent random state is used to ensure testing is consistent 
-#k_range = list(range(1,26)) #this list is used to generate a plot of the test accuracy depending on the number of nearest neighbors (k). 25 is chosen as the limit rather arbitrarily, but anything beyond 25 is usually victim to overfitting
-scores = []
-trainingScores = []
+for j in range(1,10):
+    summ = 0
+    for i in range(1, 10000):
+        x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=j/10, random_state=i) #split the dataset into a test/train duo for fitting (60% of data) and evaluating fit quality (40% of data). Consistent random state is used to ensure testing is consistent 
+        #k_range = list(range(1,26)) #this list is used to generate a plot of the test accuracy depending on the number of nearest neighbors (k). 25 is chosen as the limit rather arbitrarily, but anything beyond 25 is usually victim to overfitting
+        scores = []
+        trainingScores = []
 
 
-#As an alternative to the KNN 'lazy' prediction, this block tests logistic regression on the same train/test set as knn
-cw = {'Y': 1.0, 'N': 1.65}
-logr = LogisticRegression(class_weight=cw)
-#try:
-logr.fit(x_train, y_train)
-# except ValueError as e:
-    # continue
-y_pred = logr.predict(x_test)
-y_test_pred = logr.predict(xTest)
-        # curr_score = metrics.accuracy_score(y_test, y_pred)
-        # summ += curr_score
-        # if curr_score > max_score:
-        #     max_score = curr_score
-        #     curr_best2 = i
-        #     curr_best = j
-    # totalAvg = summ/9999
-    # avg.append([totalAvg, j])
-# print(max_score)
-# print(curr_best)
-# print(curr_best2)
-# print(avg)
+        #As an alternative to the KNN 'lazy' prediction, this block tests logistic regression on the same train/test set as knn
+        cw = {'Y': 1.0, 'N': 1.65}
+        logr = LogisticRegression(class_weight=cw)
+        try:
+            logr.fit(x_train, y_train)
+        except ValueError as e:
+            continue
+        y_pred = logr.predict(x_test)
+        y_test_pred = logr.predict(xTest)
+        curr_score = metrics.accuracy_score(y_test, y_pred)
+        summ += curr_score
+        if curr_score > max_score:
+            max_score = curr_score
+            curr_best2 = i
+            curr_best = j
+    totalAvg = summ/9999
+    avg.append([totalAvg, j])
+print(max_score)
+print(curr_best)
+print(curr_best2)
+print(avg)
 print(y.shape)
 print(y_pred.shape)
 print('logr accuracy: ' + str(metrics.accuracy_score(y_test, y_pred)))
