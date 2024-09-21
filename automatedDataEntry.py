@@ -117,38 +117,38 @@ yTest = dataTest['ClearSky'] #save the classification column as a variable
 # #     res.append(np.corrcoef(newList, b)[0][1])
 # # # #print(res.index(min(res)))
 
-max_score = 0.0
-avg = []
-for j in range(1,10):
-    summ = 0
-    for i in range(1, 10000):
-        x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=j/10, random_state=i) #split the dataset into a test/train duo for fitting (60% of data) and evaluating fit quality (40% of data). Consistent random state is used to ensure testing is consistent 
-        #k_range = list(range(1,26)) #this list is used to generate a plot of the test accuracy depending on the number of nearest neighbors (k). 25 is chosen as the limit rather arbitrarily, but anything beyond 25 is usually victim to overfitting
-        scores = []
-        trainingScores = []
+# max_score = 0.0
+# avg = []
+# for j in range(1,10):
+#     summ = 0
+#     for i in range(1, 10000):
+x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.3, random_state=0) #split the dataset into a test/train duo for fitting (60% of data) and evaluating fit quality (40% of data). Consistent random state is used to ensure testing is consistent 
+#k_range = list(range(1,26)) #this list is used to generate a plot of the test accuracy depending on the number of nearest neighbors (k). 25 is chosen as the limit rather arbitrarily, but anything beyond 25 is usually victim to overfitting
+scores = []
+trainingScores = []
 
 
-        #As an alternative to the KNN 'lazy' prediction, this block tests logistic regression on the same train/test set as knn
-        cw = {'Y': 1.0, 'N': 1.65}
-        logr = LogisticRegression(class_weight=cw)
-        try:
-            logr.fit(x_train, y_train)
-        except ValueError as e:
-            continue
-        y_pred = logr.predict(x_test)
-        y_test_pred = logr.predict(xTest)
-        curr_score = metrics.accuracy_score(y_test, y_pred)
-        summ += curr_score
-        if curr_score > max_score:
-            max_score = curr_score
-            curr_best2 = i
-            curr_best = j
-    totalAvg = summ/9999
-    avg.append([totalAvg, j])
-print(max_score)
-print(curr_best)
-print(curr_best2)
-print(avg)
+#As an alternative to the KNN 'lazy' prediction, this block tests logistic regression on the same train/test set as knn
+cw = {'Y': 1.0, 'N': 1.65}
+logr = LogisticRegression(class_weight=cw)
+#try:
+logr.fit(x_train, y_train)
+# except ValueError as e:
+#     continue
+y_pred = logr.predict(x_test)
+y_test_pred = logr.predict(xTest)
+curr_score = metrics.accuracy_score(y_test, y_pred)
+#     summ += curr_score
+#     if curr_score > max_score:
+#         max_score = curr_score
+#         curr_best2 = i
+#         curr_best = j
+# totalAvg = summ/9999
+#     avg.append([totalAvg, j])
+# print(max_score)
+# print(curr_best)
+# print(curr_best2)
+# print(avg)
 print(y.shape)
 print(y_pred.shape)
 print('logr accuracy: ' + str(metrics.accuracy_score(y_test, y_pred)))

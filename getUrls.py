@@ -355,7 +355,18 @@ def getURL():
     ['https://data.mangonetwork.org/data/transport/mango/archive/par/redline/raw/2022/356/02/mango-par-redline-20221222-020400.hdf5', 'N'],
     ['https://data.mangonetwork.org/data/transport/mango/archive/par/redline/raw/2022/354/06/mango-par-redline-20221220-065600.hdf5', 'N'],
     ['https://data.mangonetwork.org/data/transport/mango/archive/par/redline/raw/2022/302/02/mango-par-redline-20221029-022400.hdf5', 'Y'],
-    ['https://data.mangonetwork.org/data/transport/mango/archive/par/redline/raw/2022/358/03/mango-par-redline-20221224-034000.hdf5', 'Y'] #145 here
+    ['https://data.mangonetwork.org/data/transport/mango/archive/par/redline/raw/2022/358/03/mango-par-redline-20221224-034000.hdf5', 'Y'], #145 here
+    #Site CVO, Oregon
+    ['https://data.mangonetwork.org/data/transport/mango/archive/cvo/redline/raw/2023/320/03/mango-cvo-redline-20231116-030000.hdf5', 'N'], #Sept 18 Start
+    ['https://data.mangonetwork.org/data/transport/mango/archive/cvo/redline/raw/2023/319/03/mango-cvo-redline-20231115-034000.hdf5', 'N'],
+    ['https://data.mangonetwork.org/data/transport/mango/archive/cvo/redline/raw/2023/317/08/mango-cvo-redline-20231113-081200.hdf5', 'N'],
+    ['https://data.mangonetwork.org/data/transport/mango/archive/cvo/redline/raw/2023/314/06/mango-cvo-redline-20231110-060800.hdf5', 'N'],
+    ['https://data.mangonetwork.org/data/transport/mango/archive/cvo/redline/raw/2023/310/02/mango-cvo-redline-20231106-024400.hdf5', 'N'],
+    ['https://data.mangonetwork.org/data/transport/mango/archive/cvo/redline/raw/2023/292/06/mango-cvo-redline-20231019-060000.hdf5', 'Y'],
+    ['https://data.mangonetwork.org/data/transport/mango/archive/cvo/redline/raw/2023/226/06/mango-cvo-redline-20230814-063200.hdf5', 'Y'],
+    ['https://data.mangonetwork.org/data/transport/mango/archive/cvo/redline/raw/2023/203/07/mango-cvo-redline-20230722-072400.hdf5', 'Y'],
+    ['https://data.mangonetwork.org/data/transport/mango/archive/cvo/redline/raw/2023/200/08/mango-cvo-redline-20230719-080800.hdf5', 'Y'],
+    ['https://data.mangonetwork.org/data/transport/mango/archive/cvo/redline/raw/2023/173/07/mango-cvo-redline-20230622-072000.hdf5', 'Y'] #155 Here.
 
 
 
