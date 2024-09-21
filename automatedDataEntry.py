@@ -137,14 +137,14 @@ logr.fit(x_train, y_train)
 #     continue
 y_pred = logr.predict(x_test)
 y_test_pred = logr.predict(xTest)
-curr_score = metrics.accuracy_score(y_test, y_pred)
-#     summ += curr_score
-#     if curr_score > max_score:
-#         max_score = curr_score
-#         curr_best2 = i
-#         curr_best = j
-# totalAvg = summ/9999
-#     avg.append([totalAvg, j])
+    #     curr_score = metrics.accuracy_score(y_test, y_pred)
+    #     summ += curr_score
+    #     if curr_score > max_score:
+    #         max_score = curr_score
+    #         curr_best2 = i
+    #         curr_best = j
+    # totalAvg = summ/9999
+    # avg.append([totalAvg, j])
 # print(max_score)
 # print(curr_best)
 # print(curr_best2)
