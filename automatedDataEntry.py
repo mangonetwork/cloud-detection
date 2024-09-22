@@ -97,58 +97,61 @@ yTest = dataTest['ClearSky'] #save the classification column as a variable
 
 
 
-# # newList = []
+# newList = []
 
 
-# # for q in range(len(y)):
-# #     if y[q] == 'N':
-# #         newList.append(0)
-# #     else:
-# #         newList.append(1)
+# for q in range(len(y)):
+#     if y[q] == 'N':
+#         newList.append(0)
+#     else:
+#         newList.append(1)
 
-# # res =[]
-# # for d in range(len(bigDF.index)):
-# #     b = bigDF.iloc[d].to_numpy()
-# #     #print(b)
-# #     #print(np.corrcoef(newList, b))
-# #     if np.corrcoef(newList, b)[0][1] <= -0.55:
-# #          print(d)
-# #          print(np.corrcoef(newList, b)[0][1])
-# #     res.append(np.corrcoef(newList, b)[0][1])
-# # # #print(res.index(min(res)))
-
-# max_score = 0.0
-# avg = []
-# for j in range(1,10):
-#     summ = 0
-#     for i in range(1, 10000):
-x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.3, random_state=0) #split the dataset into a test/train duo for fitting (60% of data) and evaluating fit quality (40% of data). Consistent random state is used to ensure testing is consistent 
+# res =[]
+# indicies = []
+# for d in range(len(bigDF.index)):
+#     b = bigDF.iloc[d].to_numpy()
+#     #print(b)
+#     #print(np.corrcoef(newList, b))
+#     if np.corrcoef(newList, b)[0][1] <= -0.55:
+#         print(d)
+#         indicies.append(d)
+#         print(np.corrcoef(newList, b)[0][1])
+#         res.append(np.corrcoef(newList, b)[0][1])
+# # #print(res.index(min(res)))
+# print(res)
+# print(indicies) #1, 449, 450, 157050 for <= -0.55, 450 = [1][0] of the fourier transform, 157050 = [349][0]. For >= 0.5, we have 453, 7199 at .5449505 and .5302 (.53019) 8549 at 0.5300 (.5296682). Two indicators from < -0.55, is 1 at -0.58547 and 450/157050 at -0.59064
+max_score = 0.0
+avg = []
+for j in range(1,10):
+    summ = 0
+    for i in range(1, 10000):
+        x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=j/10, random_state=i) #split the dataset into a test/train duo for fitting (60% of data) and evaluating fit quality (40% of data). Consistent random state is used to ensure testing is consistent 
 #k_range = list(range(1,26)) #this list is used to generate a plot of the test accuracy depending on the number of nearest neighbors (k). 25 is chosen as the limit rather arbitrarily, but anything beyond 25 is usually victim to overfitting
-scores = []
-trainingScores = []
+        scores = []
+        trainingScores = []
 
 
 #As an alternative to the KNN 'lazy' prediction, this block tests logistic regression on the same train/test set as knn
-cw = {'Y': 1.0, 'N': 1.65}
-logr = LogisticRegression(class_weight=cw)
-#try:
-logr.fit(x_train, y_train)
-# except ValueError as e:
-#     continue
-y_pred = logr.predict(x_test)
-y_test_pred = logr.predict(xTest)
-    #     curr_score = metrics.accuracy_score(y_test, y_pred)
-    #     summ += curr_score
-    #     if curr_score > max_score:
-    #         max_score = curr_score
-    #         curr_best2 = i
-    #         curr_best = j
-    # totalAvg = summ/9999
-    # avg.append([totalAvg, j])
-# print(max_score)
-# print(curr_best)
-# print(curr_best2)
-# print(avg)
+        cw = {'Y': 1.0, 'N': 1.65}
+        logr = LogisticRegression(class_weight=cw)
+        try:
+            logr.fit(x_train, y_train)
+        except ValueError as e:
+            continue
+        y_pred = logr.predict(x_test)
+        y_test_pred = logr.predict(xTest)
+        curr_score = metrics.accuracy_score(y_test, y_pred)
+        summ += curr_score
+        if curr_score > max_score:
+            max_score = curr_score
+            curr_best2 = i
+            curr_best = j
+    totalAvg = summ/9999
+    avg.append([totalAvg, j])
+print(max_score)
+print(curr_best)
+print(curr_best2)
+print(avg)
 print(y.shape)
 print(y_pred.shape)
 print('logr accuracy: ' + str(metrics.accuracy_score(y_test, y_pred)))

@@ -1,73 +1,75 @@
 def getURL():
-    urls = [['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/156/07/mango-low-greenline-20220605-071400.hdf5', 'Y'],
+
+    #x means reviewed and approved as of sept 22
+    urls = [['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/156/07/mango-low-greenline-20220605-071400.hdf5', 'Y'], 
   #  ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/059/11/mango-low-greenline-20220228-111200.hdf5', 'Y'],  #need 10 y 13n
     #['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/291/09/mango-low-greenline-20221018-091000.hdf5', 'Y'],
-    ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/326/03/mango-low-greenline-20221122-030600.hdf5', 'Y'],
-    ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/128/07/mango-low-greenline-20220508-072600.hdf5', 'Y'],
-    ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/133/10/mango-low-greenline-20220513-104600.hdf5', 'Y'],
+    ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/326/03/mango-low-greenline-20221122-030600.hdf5', 'Y'], #x
+    ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/128/07/mango-low-greenline-20220508-072600.hdf5', 'Y'], #x
+    ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/133/10/mango-low-greenline-20220513-104600.hdf5', 'Y'], #x
     #['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/135/10/mango-low-greenline-20220515-104400.hdf5', 'Y'],
-    ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/137/04/mango-low-greenline-20220517-043800.hdf5', 'Y'],
-    ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/139/04/mango-low-greenline-20220519-040600.hdf5', 'Y'],
-    ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/147/04/mango-low-greenline-20220527-041400.hdf5', 'Y'],
-    ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/149/10/mango-low-greenline-20220529-103000.hdf5', 'Y'],
-    ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/151/04/mango-low-greenline-20220531-042400.hdf5', 'Y'],
-    ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/158/06/mango-low-greenline-20220607-065800.hdf5', 'Y'],
-    ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/166/04/mango-low-greenline-20220615-042800.hdf5', 'Y'],
-    ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/167/05/mango-low-greenline-20220616-050000.hdf5', 'Y'],
-    ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/071/09/mango-low-greenline-20220312-091400.hdf5', 'Y'],
-    ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/073/12/mango-low-greenline-20220314-120000.hdf5', 'Y'],
-    ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/074/12/mango-low-greenline-20220315-120000.hdf5', 'Y'],
-    ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/037/07/mango-low-greenline-20220206-070000.hdf5', 'Y'],
-    ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/038/05/mango-low-greenline-20220207-053400.hdf5', 'Y'],
-    ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/039/10/mango-low-greenline-20220208-100000.hdf5', 'Y'],
-    ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/040/10/mango-low-greenline-20220209-100000.hdf5', 'Y'],
-    ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/041/12/mango-low-greenline-20220210-121800.hdf5', 'Y'],
-    ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/042/09/mango-low-greenline-20220211-093400.hdf5', 'Y'],
-    ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/043/12/mango-low-greenline-20220212-122600.hdf5', 'Y'],
-    ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/044/12/mango-low-greenline-20220213-123400.hdf5', 'Y'],
-    ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/029/07/mango-low-greenline-20220129-072800.hdf5', 'Y'],
-    ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/333/10/mango-low-greenline-20221129-101200.hdf5', 'Y'],
-    ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/012/06/mango-low-greenline-20220112-060200.hdf5', 'N'],
-    ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/296/02/mango-low-greenline-20221023-023200.hdf5', 'N'],
-    ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/170/04/mango-low-greenline-20220619-045200.hdf5', 'N'],
-    ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/010/02/mango-low-greenline-20220110-021000.hdf5', 'N'],
-    ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/030/02/mango-low-greenline-20220130-022000.hdf5', 'Y'],
-    ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/081/03/mango-low-greenline-20220322-030400.hdf5', 'N'],
-    ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/069/12/mango-low-greenline-20220310-120000.hdf5', 'N'],
-    ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/067/07/mango-low-greenline-20220308-070000.hdf5', 'N'],
-    ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/048/12/mango-low-greenline-20220217-122200.hdf5', 'N'],
-    ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/051/04/mango-low-greenline-20220220-040600.hdf5', 'N'],
-    ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/052/02/mango-low-greenline-20220221-024200.hdf5', 'N'],
-    ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/116/09/mango-low-greenline-20220426-095600.hdf5', 'N'], #37
+    ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/137/04/mango-low-greenline-20220517-043800.hdf5', 'Y'], #x
+    ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/139/04/mango-low-greenline-20220519-040600.hdf5', 'Y'], #x
+    ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/147/04/mango-low-greenline-20220527-041400.hdf5', 'Y'], #x
+    ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/149/10/mango-low-greenline-20220529-103000.hdf5', 'Y'], #x
+    ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/151/04/mango-low-greenline-20220531-042400.hdf5', 'Y'], #x
+    ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/158/06/mango-low-greenline-20220607-065800.hdf5', 'Y'], #x
+    ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/166/04/mango-low-greenline-20220615-042800.hdf5', 'Y'], #x
+    ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/167/05/mango-low-greenline-20220616-050000.hdf5', 'Y'], #x
+    ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/071/09/mango-low-greenline-20220312-091400.hdf5', 'Y'], #x
+    ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/073/12/mango-low-greenline-20220314-120000.hdf5', 'Y'], #x
+    ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/074/12/mango-low-greenline-20220315-120000.hdf5', 'Y'], #x
+    ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/037/07/mango-low-greenline-20220206-070000.hdf5', 'Y'], #x
+    ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/038/05/mango-low-greenline-20220207-053400.hdf5', 'Y'], #x
+    ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/039/10/mango-low-greenline-20220208-100000.hdf5', 'Y'], #x
+    ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/040/10/mango-low-greenline-20220209-100000.hdf5', 'Y'], #x
+    ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/041/12/mango-low-greenline-20220210-121800.hdf5', 'Y'], #x
+    ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/042/09/mango-low-greenline-20220211-093400.hdf5', 'Y'], #x
+    ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/043/12/mango-low-greenline-20220212-122600.hdf5', 'Y'], #x
+    ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/044/12/mango-low-greenline-20220213-123400.hdf5', 'Y'], #x
+    ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/029/07/mango-low-greenline-20220129-072800.hdf5', 'Y'], #x
+    ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/333/10/mango-low-greenline-20221129-101200.hdf5', 'Y'], #x
+   # ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/012/06/mango-low-greenline-20220112-060200.hdf5', 'N'], #this is snow
+    ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/296/02/mango-low-greenline-20221023-023200.hdf5', 'N'], #x
+ #   ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/170/04/mango-low-greenline-20220619-045200.hdf5', 'N'], #this is water
+  #  ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/010/02/mango-low-greenline-20220110-021000.hdf5', 'N'], #this is snow
+   # ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/030/02/mango-low-greenline-20220130-022000.hdf5', 'Y'], #this is not clear
+    ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/081/03/mango-low-greenline-20220322-030400.hdf5', 'Y'], #this was labelled as cloudy? 
+    #['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/069/12/mango-low-greenline-20220310-120000.hdf5', 'N'], #this is not cloudy enough
+    #['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/067/07/mango-low-greenline-20220308-070000.hdf5', 'N'], #this is snow
+    #['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/048/12/mango-low-greenline-20220217-122200.hdf5', 'N'], #this is snow
+    ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/051/04/mango-low-greenline-20220220-040600.hdf5', 'Y'], #this was wrong label (is clear)
+    ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/052/02/mango-low-greenline-20220221-024200.hdf5', 'Y'], #this was wrong label  (is clear)
+    ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/116/09/mango-low-greenline-20220426-095600.hdf5', 'Y'], #37, this was wrong label
 
-    ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/054/10/mango-low-greenline-20220223-104000.hdf5', 'N'],
-    ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/034/12/mango-low-greenline-20220203-122600.hdf5', 'Y'],
-    ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/032/10/mango-low-greenline-20220201-103200.hdf5', 'N'],
-    ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/031/03/mango-low-greenline-20220131-032200.hdf5', 'N'],
-    ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/028/02/mango-low-greenline-20220128-024200.hdf5', 'N'],
-    ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/027/11/mango-low-greenline-20220127-112400.hdf5', 'N'],
-    ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/022/03/mango-low-greenline-20220122-033400.hdf5', 'N'],
-    ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/362/04/mango-low-greenline-20221228-040600.hdf5', 'N'],
-    ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/346/10/mango-low-greenline-20221212-103600.hdf5', 'N'],
-    ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/331/04/mango-low-greenline-20221127-043400.hdf5', 'N'],
-    ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/328/03/mango-low-greenline-20221124-031400.hdf5', 'Y'],
+    ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/054/10/mango-low-greenline-20220223-104000.hdf5', 'N'], #this looks weird and maybe has moon interference
+    ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/034/12/mango-low-greenline-20220203-122600.hdf5', 'Y'], #x
+   # ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/032/10/mango-low-greenline-20220201-103200.hdf5', 'N'], #this is not cloudy
+   # ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/031/03/mango-low-greenline-20220131-032200.hdf5', 'N'], #this is camera frost
+    ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/028/02/mango-low-greenline-20220128-024200.hdf5', 'Y'], #wrongly labelled as cloudy 
+   # ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/027/11/mango-low-greenline-20220127-112400.hdf5', 'N'], #camera frost
+   # ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/022/03/mango-low-greenline-20220122-033400.hdf5', 'N'], #not cloudy
+    ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/362/04/mango-low-greenline-20221228-040600.hdf5', 'N'], #change this to an image later on the same day (5:58)
+   # ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/346/10/mango-low-greenline-20221212-103600.hdf5', 'N'], #sno. Change this to one earlier on the same day
+    ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/331/04/mango-low-greenline-20221127-043400.hdf5', 'N'], #maybe go earlier in the day on this? pretty close to ok
+    ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/328/03/mango-low-greenline-20221124-031400.hdf5', 'Y'], #x
 
-    ['https://data.mangonetwork.org/data/transport/mango/archive/blo/greenline/raw/2022/297/05/mango-blo-greenline-20221024-052400.hdf5', 'N'], #blo starts here need 4 N 1y
-    ['https://data.mangonetwork.org/data/transport/mango/archive/blo/greenline/raw/2022/297/02/mango-blo-greenline-20221024-024400.hdf5', 'N'],
-    ['https://data.mangonetwork.org/data/transport/mango/archive/blo/greenline/raw/2022/309/10/mango-blo-greenline-20221105-103200.hdf5', 'N'],
-    ['https://data.mangonetwork.org/data/transport/mango/archive/blo/greenline/raw/2022/273/03/mango-blo-greenline-20220930-030000.hdf5', 'N'],
-    ['https://data.mangonetwork.org/data/transport/mango/archive/blo/greenline/raw/2022/240/05/mango-blo-greenline-20220828-050000.hdf5', 'N'],
-    ['https://data.mangonetwork.org/data/transport/mango/archive/blo/greenline/raw/2022/217/09/mango-blo-greenline-20220805-092600.hdf5', 'N'],
-    ['https://data.mangonetwork.org/data/transport/mango/archive/blo/greenline/raw/2022/204/09/mango-blo-greenline-20220723-094000.hdf5', 'N'],
-    ['https://data.mangonetwork.org/data/transport/mango/archive/blo/greenline/raw/2022/156/06/mango-blo-greenline-20220605-062400.hdf5', 'N'],
-    ['https://data.mangonetwork.org/data/transport/mango/archive/blo/greenline/raw/2022/156/05/mango-blo-greenline-20220605-050600.hdf5', 'N'],
-    ['https://data.mangonetwork.org/data/transport/mango/archive/blo/greenline/raw/2022/170/09/mango-blo-greenline-20220619-092000.hdf5', 'Y'],
-    ['https://data.mangonetwork.org/data/transport/mango/archive/blo/greenline/raw/2022/128/06/mango-blo-greenline-20220508-060000.hdf5', 'N'],
-    ['https://data.mangonetwork.org/data/transport/mango/archive/blo/greenline/raw/2022/132/10/mango-blo-greenline-20220512-101200.hdf5', 'N'],
-    ['https://data.mangonetwork.org/data/transport/mango/archive/blo/greenline/raw/2022/140/07/mango-blo-greenline-20220520-070400.hdf5', 'Y'],
-    ['https://data.mangonetwork.org/data/transport/mango/archive/blo/greenline/raw/2022/148/07/mango-blo-greenline-20220528-072600.hdf5', 'N'],
-    ['https://data.mangonetwork.org/data/transport/mango/archive/blo/greenline/raw/2022/148/09/mango-blo-greenline-20220528-090600.hdf5', 'N'],
-    ['https://data.mangonetwork.org/data/transport/mango/archive/blo/greenline/raw/2022/324/05/mango-blo-greenline-20221120-051600.hdf5', 'N'],
+    # ['https://data.mangonetwork.org/data/transport/mango/archive/blo/greenline/raw/2022/297/05/mango-blo-greenline-20221024-052400.hdf5', 'N'], #this is snow
+    # ['https://data.mangonetwork.org/data/transport/mango/archive/blo/greenline/raw/2022/297/02/mango-blo-greenline-20221024-024400.hdf5', 'N'], #this is snow
+    # ['https://data.mangonetwork.org/data/transport/mango/archive/blo/greenline/raw/2022/309/10/mango-blo-greenline-20221105-103200.hdf5', 'N'], #this is snow
+    # ['https://data.mangonetwork.org/data/transport/mango/archive/blo/greenline/raw/2022/273/03/mango-blo-greenline-20220930-030000.hdf5', 'N'], #Choose one later in the day
+    # ['https://data.mangonetwork.org/data/transport/mango/archive/blo/greenline/raw/2022/240/05/mango-blo-greenline-20220828-050000.hdf5', 'N'], #not cloudy
+    # ['https://data.mangonetwork.org/data/transport/mango/archive/blo/greenline/raw/2022/217/09/mango-blo-greenline-20220805-092600.hdf5', 'N'], #choose a better one from this day
+    ['https://data.mangonetwork.org/data/transport/mango/archive/blo/greenline/raw/2022/204/09/mango-blo-greenline-20220723-094000.hdf5', 'N'], #x
+    # ['https://data.mangonetwork.org/data/transport/mango/archive/blo/greenline/raw/2022/156/06/mango-blo-greenline-20220605-062400.hdf5', 'N'], #water on lens
+    # ['https://data.mangonetwork.org/data/transport/mango/archive/blo/greenline/raw/2022/156/05/mango-blo-greenline-20220605-050600.hdf5', 'N'], #water on lens
+    # ['https://data.mangonetwork.org/data/transport/mango/archive/blo/greenline/raw/2022/170/09/mango-blo-greenline-20220619-092000.hdf5', 'Y'], #moon and this is cloudy. choose earlier in night
+    # ['https://data.mangonetwork.org/data/transport/mango/archive/blo/greenline/raw/2022/128/06/mango-blo-greenline-20220508-060000.hdf5', 'N'], #moon and water on lens
+    # ['https://data.mangonetwork.org/data/transport/mango/archive/blo/greenline/raw/2022/132/10/mango-blo-greenline-20220512-101200.hdf5', 'N'], #choose different one on this day
+    # ['https://data.mangonetwork.org/data/transport/mango/archive/blo/greenline/raw/2022/140/07/mango-blo-greenline-20220520-070400.hdf5', 'Y'], #choose earlier in the day  (not clear, should be cloudy)
+    ['https://data.mangonetwork.org/data/transport/mango/archive/blo/greenline/raw/2022/148/07/mango-blo-greenline-20220528-072600.hdf5', 'N'], #x
+    # ['https://data.mangonetwork.org/data/transport/mango/archive/blo/greenline/raw/2022/148/09/mango-blo-greenline-20220528-090600.hdf5', 'N'], #remove this, can't be on the same day
+    # ['https://data.mangonetwork.org/data/transport/mango/archive/blo/greenline/raw/2022/324/05/mango-blo-greenline-20221120-051600.hdf5', 'N'], #this is snow
     ['https://data.mangonetwork.org/data/transport/mango/archive/blo/greenline/raw/2022/285/02/mango-blo-greenline-20221012-022400.hdf5', 'Y'],
     ['https://data.mangonetwork.org/data/transport/mango/archive/blo/greenline/raw/2022/275/07/mango-blo-greenline-20221002-073000.hdf5', 'Y'],
     ['https://data.mangonetwork.org/data/transport/mango/archive/blo/greenline/raw/2022/297/11/mango-blo-greenline-20221024-110000.hdf5', 'Y'],
@@ -93,7 +95,7 @@ def getURL():
     ['https://data.mangonetwork.org/data/transport/mango/archive/blo/greenline/raw/2022/233/07/mango-blo-greenline-20220821-073200.hdf5', 'Y'],
    # ['https://data.mangonetwork.org/data/transport/mango/archive/blo/greenline/raw/2022/188/08/mango-blo-greenline-20220707-083400.hdf5', 'Y'],
     ['https://data.mangonetwork.org/data/transport/mango/archive/blo/greenline/raw/2022/185/07/mango-blo-greenline-20220704-072800.hdf5', 'Y'],
-
+    #https://www.mangonetwork.org/mango/v1/database/sites/bdr/greenline/2024-08-27 bird on the camera LOL
     #BDR Data
     ['https://data.mangonetwork.org/data/transport/mango/archive/bdr/greenline/raw/2022/359/03/mango-bdr-greenline-20221225-031400.hdf5', 'Y'],
     ['https://data.mangonetwork.org/data/transport/mango/archive/bdr/greenline/raw/2022/359/06/mango-bdr-greenline-20221225-063800.hdf5', 'Y'],
@@ -122,26 +124,26 @@ def getURL():
     ['https://data.mangonetwork.org/data/transport/mango/archive/bdr/greenline/raw/2023/070/03/mango-bdr-greenline-20230311-034200.hdf5', 'Y'],
     ['https://data.mangonetwork.org/data/transport/mango/archive/bdr/greenline/raw/2023/022/04/mango-bdr-greenline-20230122-044800.hdf5', 'Y'],
     ['https://data.mangonetwork.org/data/transport/mango/archive/bdr/greenline/raw/2023/004/11/mango-bdr-greenline-20230104-114000.hdf5', 'Y'],
-    ['https://data.mangonetwork.org/data/transport/mango/archive/bdr/greenline/raw/2023/095/10/mango-bdr-greenline-20230405-103200.hdf5', 'N'],
-    ['https://data.mangonetwork.org/data/transport/mango/archive/bdr/greenline/raw/2023/105/06/mango-bdr-greenline-20230415-063600.hdf5', 'N'],
-    ['https://data.mangonetwork.org/data/transport/mango/archive/bdr/greenline/raw/2023/077/07/mango-bdr-greenline-20230318-073600.hdf5', 'N'],
-    ['https://data.mangonetwork.org/data/transport/mango/archive/bdr/greenline/raw/2023/077/11/mango-bdr-greenline-20230318-110000.hdf5', 'N'],
-    ['https://data.mangonetwork.org/data/transport/mango/archive/bdr/greenline/raw/2023/114/05/mango-bdr-greenline-20230424-053600.hdf5', 'N'],
-    ['https://data.mangonetwork.org/data/transport/mango/archive/bdr/greenline/raw/2023/028/09/mango-bdr-greenline-20230128-094200.hdf5', 'N'],
-    ['https://data.mangonetwork.org/data/transport/mango/archive/bdr/greenline/raw/2023/045/04/mango-bdr-greenline-20230214-043400.hdf5', 'N'],
-    ['https://data.mangonetwork.org/data/transport/mango/archive/bdr/greenline/raw/2023/113/07/mango-bdr-greenline-20230423-073400.hdf5', 'N'],
-    ['https://data.mangonetwork.org/data/transport/mango/archive/bdr/greenline/raw/2023/102/06/mango-bdr-greenline-20230412-061000.hdf5', 'N'],
-    ['https://data.mangonetwork.org/data/transport/mango/archive/bdr/greenline/raw/2022/347/05/mango-bdr-greenline-20221213-051200.hdf5', 'N'],
-    ['https://data.mangonetwork.org/data/transport/mango/archive/bdr/greenline/raw/2023/082/05/mango-bdr-greenline-20230323-052200.hdf5', 'N'],
-    ['https://data.mangonetwork.org/data/transport/mango/archive/bdr/greenline/raw/2023/076/06/mango-bdr-greenline-20230317-061600.hdf5', 'N'],
-    ['https://data.mangonetwork.org/data/transport/mango/archive/bdr/greenline/raw/2023/132/05/mango-bdr-greenline-20230512-054000.hdf5', 'N'],
-    ['https://data.mangonetwork.org/data/transport/mango/archive/bdr/greenline/raw/2023/141/10/mango-bdr-greenline-20230521-100000.hdf5', 'N'],
-    ['https://data.mangonetwork.org/data/transport/mango/archive/bdr/greenline/raw/2022/338/11/mango-bdr-greenline-20221204-113800.hdf5', 'N'],
-    ['https://data.mangonetwork.org/data/transport/mango/archive/bdr/greenline/raw/2023/089/08/mango-bdr-greenline-20230330-084800.hdf5', 'N'],
-    ['https://data.mangonetwork.org/data/transport/mango/archive/bdr/greenline/raw/2023/100/03/mango-bdr-greenline-20230410-031000.hdf5', 'N'],
-    ['https://data.mangonetwork.org/data/transport/mango/archive/bdr/greenline/raw/2023/002/08/mango-bdr-greenline-20230102-085400.hdf5', 'N'],
-    ['https://data.mangonetwork.org/data/transport/mango/archive/bdr/greenline/raw/2023/024/04/mango-bdr-greenline-20230124-045400.hdf5', 'N'],
-    ['https://data.mangonetwork.org/data/transport/mango/archive/bdr/greenline/raw/2023/127/02/mango-bdr-greenline-20230507-024800.hdf5', 'N'], 
+    ['https://data.mangonetwork.org/data/transport/mango/archive/bdr/greenline/raw/2023/095/10/mango-bdr-greenline-20230405-103200.hdf5', 'N'], #x this day is very cool, thunderstorm
+    ['https://data.mangonetwork.org/data/transport/mango/archive/bdr/greenline/raw/2023/105/06/mango-bdr-greenline-20230415-063600.hdf5', 'N'], #x
+    ['https://data.mangonetwork.org/data/transport/mango/archive/bdr/greenline/raw/2023/077/07/mango-bdr-greenline-20230318-073600.hdf5', 'N'], #x
+    ['https://data.mangonetwork.org/data/transport/mango/archive/bdr/greenline/raw/2023/077/11/mango-bdr-greenline-20230318-110000.hdf5', 'N'], #x
+    ['https://data.mangonetwork.org/data/transport/mango/archive/bdr/greenline/raw/2023/114/05/mango-bdr-greenline-20230424-053600.hdf5', 'N'], #x
+    ['https://data.mangonetwork.org/data/transport/mango/archive/bdr/greenline/raw/2023/028/09/mango-bdr-greenline-20230128-094200.hdf5', 'N'], #x
+    ['https://data.mangonetwork.org/data/transport/mango/archive/bdr/greenline/raw/2023/045/04/mango-bdr-greenline-20230214-043400.hdf5', 'N'], #x
+    ['https://data.mangonetwork.org/data/transport/mango/archive/bdr/greenline/raw/2023/113/07/mango-bdr-greenline-20230423-073400.hdf5', 'N'], #x
+  #  ['https://data.mangonetwork.org/data/transport/mango/archive/bdr/greenline/raw/2023/102/06/mango-bdr-greenline-20230412-061000.hdf5', 'N'], #this is not cloudy
+    ['https://data.mangonetwork.org/data/transport/mango/archive/bdr/greenline/raw/2022/347/05/mango-bdr-greenline-20221213-051200.hdf5', 'N'], #x
+    ['https://data.mangonetwork.org/data/transport/mango/archive/bdr/greenline/raw/2023/082/05/mango-bdr-greenline-20230323-052200.hdf5', 'N'], #x
+   # ['https://data.mangonetwork.org/data/transport/mango/archive/bdr/greenline/raw/2023/076/06/mango-bdr-greenline-20230317-061600.hdf5', 'N'], #choose different one on this day or later (march 21 or so?)
+    ['https://data.mangonetwork.org/data/transport/mango/archive/bdr/greenline/raw/2023/132/05/mango-bdr-greenline-20230512-054000.hdf5', 'N'], #x get one from the 14th of this month, big storm
+    ['https://data.mangonetwork.org/data/transport/mango/archive/bdr/greenline/raw/2023/141/10/mango-bdr-greenline-20230521-100000.hdf5', 'N'], #x
+    ['https://data.mangonetwork.org/data/transport/mango/archive/bdr/greenline/raw/2022/338/11/mango-bdr-greenline-20221204-113800.hdf5', 'N'], #x
+    ['https://data.mangonetwork.org/data/transport/mango/archive/bdr/greenline/raw/2023/089/08/mango-bdr-greenline-20230330-084800.hdf5', 'N'], #x
+    #['https://data.mangonetwork.org/data/transport/mango/archive/bdr/greenline/raw/2023/100/03/mango-bdr-greenline-20230410-031000.hdf5', 'N'], #not cloudy enough
+    ['https://data.mangonetwork.org/data/transport/mango/archive/bdr/greenline/raw/2023/002/08/mango-bdr-greenline-20230102-085400.hdf5', 'N'], #x
+    ['https://data.mangonetwork.org/data/transport/mango/archive/bdr/greenline/raw/2023/024/04/mango-bdr-greenline-20230124-045400.hdf5', 'N'], #x
+  #  ['https://data.mangonetwork.org/data/transport/mango/archive/bdr/greenline/raw/2023/127/02/mango-bdr-greenline-20230507-024800.hdf5', 'N'], #moon interference
 
 #https://data.mangonetwork.org/data/transport/mango/archive/bdr/greenline/raw/2023/095/10/ really cool hour of lightning
 
@@ -181,22 +183,22 @@ def getURL():
     ['https://data.mangonetwork.org/data/transport/mango/archive/cfs/greenline/raw/2023/019/06/mango-cfs-greenline-20230119-063600.hdf5', 'Y'],
     ['https://data.mangonetwork.org/data/transport/mango/archive/cfs/greenline/raw/2023/021/04/mango-cfs-greenline-20230121-043600.hdf5', 'Y'],
     ['https://data.mangonetwork.org/data/transport/mango/archive/cfs/greenline/raw/2023/042/06/mango-cfs-greenline-20230211-064200.hdf5', 'Y'],
-    ['https://data.mangonetwork.org/data/transport/mango/archive/cfs/greenline/raw/2023/023/10/mango-cfs-greenline-20230123-102800.hdf5', 'N'],
-    ['https://data.mangonetwork.org/data/transport/mango/archive/cfs/greenline/raw/2023/140/07/mango-cfs-greenline-20230520-073000.hdf5', 'N'],
-    ['https://data.mangonetwork.org/data/transport/mango/archive/cfs/greenline/raw/2023/140/08/mango-cfs-greenline-20230520-081000.hdf5', 'N'],
-    ['https://data.mangonetwork.org/data/transport/mango/archive/cfs/greenline/raw/2023/144/06/mango-cfs-greenline-20230524-065000.hdf5', 'N'],
-    ['https://data.mangonetwork.org/data/transport/mango/archive/cfs/greenline/raw/2023/171/08/mango-cfs-greenline-20230620-080000.hdf5', 'N'],
-    ['https://data.mangonetwork.org/data/transport/mango/archive/cfs/greenline/raw/2023/147/09/mango-cfs-greenline-20230527-095000.hdf5', 'N'],
-    ['https://data.mangonetwork.org/data/transport/mango/archive/cfs/greenline/raw/2023/195/06/mango-cfs-greenline-20230714-064000.hdf5', 'N'],
-    ['https://data.mangonetwork.org/data/transport/mango/archive/cfs/greenline/raw/2023/195/06/mango-cfs-greenline-20230714-060000.hdf5', 'N'],
-    ['https://data.mangonetwork.org/data/transport/mango/archive/cfs/greenline/raw/2023/133/08/mango-cfs-greenline-20230513-080000.hdf5', 'N'],
-    ['https://data.mangonetwork.org/data/transport/mango/archive/cfs/greenline/raw/2023/166/05/mango-cfs-greenline-20230615-053200.hdf5', 'N'],
-    ['https://data.mangonetwork.org/data/transport/mango/archive/cfs/greenline/raw/2023/166/10/mango-cfs-greenline-20230615-100400.hdf5', 'N'],
-    ['https://data.mangonetwork.org/data/transport/mango/archive/cfs/greenline/raw/2023/133/05/mango-cfs-greenline-20230513-053800.hdf5', 'N'],
-    ['https://data.mangonetwork.org/data/transport/mango/archive/cfs/greenline/raw/2023/070/05/mango-cfs-greenline-20230311-050000.hdf5', 'N'], #huge number of dead pixels
-    ['https://data.mangonetwork.org/data/transport/mango/archive/cfs/greenline/raw/2023/089/08/mango-cfs-greenline-20230330-085000.hdf5', 'N'],
-    ['https://data.mangonetwork.org/data/transport/mango/archive/cfs/greenline/raw/2023/108/08/mango-cfs-greenline-20230418-085200.hdf5', 'N'], #good example
-    ['https://data.mangonetwork.org/data/transport/mango/archive/cfs/greenline/raw/2023/108/05/mango-cfs-greenline-20230418-054000.hdf5', 'N'], #187
+  #  ['https://data.mangonetwork.org/data/transport/mango/archive/cfs/greenline/raw/2023/023/10/mango-cfs-greenline-20230123-102800.hdf5', 'N'], #frost on lens
+    ['https://data.mangonetwork.org/data/transport/mango/archive/cfs/greenline/raw/2023/140/07/mango-cfs-greenline-20230520-073000.hdf5', 'N'], #x
+   # ['https://data.mangonetwork.org/data/transport/mango/archive/cfs/greenline/raw/2023/140/08/mango-cfs-greenline-20230520-081000.hdf5', 'N'], #same day as previous
+    ['https://data.mangonetwork.org/data/transport/mango/archive/cfs/greenline/raw/2023/144/06/mango-cfs-greenline-20230524-065000.hdf5', 'N'], #x
+    ['https://data.mangonetwork.org/data/transport/mango/archive/cfs/greenline/raw/2023/171/08/mango-cfs-greenline-20230620-080000.hdf5', 'N'], #x
+    ['https://data.mangonetwork.org/data/transport/mango/archive/cfs/greenline/raw/2023/147/09/mango-cfs-greenline-20230527-095000.hdf5', 'N'], #x
+   # ['https://data.mangonetwork.org/data/transport/mango/archive/cfs/greenline/raw/2023/195/06/mango-cfs-greenline-20230714-064000.hdf5', 'N'], #not cloudy enough
+  #  ['https://data.mangonetwork.org/data/transport/mango/archive/cfs/greenline/raw/2023/195/06/mango-cfs-greenline-20230714-060000.hdf5', 'N'],  #not cloudy enough
+    ['https://data.mangonetwork.org/data/transport/mango/archive/cfs/greenline/raw/2023/133/08/mango-cfs-greenline-20230513-080000.hdf5', 'N'], #x
+    ['https://data.mangonetwork.org/data/transport/mango/archive/cfs/greenline/raw/2023/166/05/mango-cfs-greenline-20230615-053200.hdf5', 'N'], #x
+  #  ['https://data.mangonetwork.org/data/transport/mango/archive/cfs/greenline/raw/2023/166/10/mango-cfs-greenline-20230615-100400.hdf5', 'N'], #xsame day doesnt count
+#    ['https://data.mangonetwork.org/data/transport/mango/archive/cfs/greenline/raw/2023/133/05/mango-cfs-greenline-20230513-053800.hdf5', 'N'], #same day as a few above doesnt count
+  #  ['https://data.mangonetwork.org/data/transport/mango/archive/cfs/greenline/raw/2023/070/05/mango-cfs-greenline-20230311-050000.hdf5', 'N'], #moon interferencehuge number of dead pixels
+    ['https://data.mangonetwork.org/data/transport/mango/archive/cfs/greenline/raw/2023/089/08/mango-cfs-greenline-20230330-085000.hdf5', 'N'], #x
+    ['https://data.mangonetwork.org/data/transport/mango/archive/cfs/greenline/raw/2023/108/08/mango-cfs-greenline-20230418-085200.hdf5', 'N'], #x, good example
+    # ['https://data.mangonetwork.org/data/transport/mango/archive/cfs/greenline/raw/2023/108/05/mango-cfs-greenline-20230418-054000.hdf5', 'N'], #187 same day doesn't count
     ['https://data.mangonetwork.org/data/transport/mango/archive/cvo/redline/raw/2024/005/09/mango-cvo-redline-20240105-092400.hdf5', 'Y'], #CVO RedLine Start: 
     ['https://data.mangonetwork.org/data/transport/mango/archive/cvo/redline/raw/2024/041/07/mango-cvo-redline-20240210-073200.hdf5', 'Y'], 
     ['https://data.mangonetwork.org/data/transport/mango/archive/cvo/redline/raw/2024/089/04/mango-cvo-redline-20240329-040400.hdf5', 'Y'],
