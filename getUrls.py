@@ -44,22 +44,22 @@ def getURL():
 
     ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/054/10/mango-low-greenline-20220223-104000.hdf5', 'N'], #this looks weird and maybe has moon interference
     ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/034/12/mango-low-greenline-20220203-122600.hdf5', 'Y'], #x
-   # ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/032/10/mango-low-greenline-20220201-103200.hdf5', 'N'], #this is not cloudy
-   # ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/031/03/mango-low-greenline-20220131-032200.hdf5', 'N'], #this is camera frost
+    ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2023/319/05/mango-low-greenline-20231115-055800.hdf5', 'N'],
+    ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2023/309/03/mango-low-greenline-20231105-031600.hdf5', 'N'],
     ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/028/02/mango-low-greenline-20220128-024200.hdf5', 'Y'], #wrongly labelled as cloudy 
-   # ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/027/11/mango-low-greenline-20220127-112400.hdf5', 'N'], #camera frost
-   # ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/022/03/mango-low-greenline-20220122-033400.hdf5', 'N'], #not cloudy
-    ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/362/04/mango-low-greenline-20221228-040600.hdf5', 'N'], #change this to an image later on the same day (5:58)
-   # ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/346/10/mango-low-greenline-20221212-103600.hdf5', 'N'], #sno. Change this to one earlier on the same day
+    ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2023/282/03/mango-low-greenline-20231009-030200.hdf5', 'N'],
+    ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2023/259/03/mango-low-greenline-20230916-032800.hdf5', 'N'],
+    ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/362/04/mango-low-greenline-20221228-040600.hdf5', 'N'], 
+    ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2023/254/04/mango-low-greenline-20230911-045000.hdf5', 'N'], 
     ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/331/04/mango-low-greenline-20221127-043400.hdf5', 'N'], #maybe go earlier in the day on this? pretty close to ok
     ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/328/03/mango-low-greenline-20221124-031400.hdf5', 'Y'], #x
-
-    # ['https://data.mangonetwork.org/data/transport/mango/archive/blo/greenline/raw/2022/297/05/mango-blo-greenline-20221024-052400.hdf5', 'N'], #this is snow
-    # ['https://data.mangonetwork.org/data/transport/mango/archive/blo/greenline/raw/2022/297/02/mango-blo-greenline-20221024-024400.hdf5', 'N'], #this is snow
-    # ['https://data.mangonetwork.org/data/transport/mango/archive/blo/greenline/raw/2022/309/10/mango-blo-greenline-20221105-103200.hdf5', 'N'], #this is snow
-    # ['https://data.mangonetwork.org/data/transport/mango/archive/blo/greenline/raw/2022/273/03/mango-blo-greenline-20220930-030000.hdf5', 'N'], #Choose one later in the day
-    # ['https://data.mangonetwork.org/data/transport/mango/archive/blo/greenline/raw/2022/240/05/mango-blo-greenline-20220828-050000.hdf5', 'N'], #not cloudy
-    # ['https://data.mangonetwork.org/data/transport/mango/archive/blo/greenline/raw/2022/217/09/mango-blo-greenline-20220805-092600.hdf5', 'N'], #choose a better one from this day
+  #what
+    ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2023/231/04/mango-low-greenline-20230819-043400.hdf5', 'N'],
+    ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2023/229/04/mango-low-greenline-20230817-040400.hdf5', 'N'],
+    ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2023/227/04/mango-low-greenline-20230815-040200.hdf5', 'N'], 
+    ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2023/223/05/mango-low-greenline-20230811-053800.hdf5', 'N'],
+    ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2023/204/07/mango-low-greenline-20230723-074200.hdf5', 'N'],
+    ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2023/193/06/mango-low-greenline-20230712-061600.hdf5', 'N'], 
     ['https://data.mangonetwork.org/data/transport/mango/archive/blo/greenline/raw/2022/204/09/mango-blo-greenline-20220723-094000.hdf5', 'N'], #x
     # ['https://data.mangonetwork.org/data/transport/mango/archive/blo/greenline/raw/2022/156/06/mango-blo-greenline-20220605-062400.hdf5', 'N'], #water on lens
     # ['https://data.mangonetwork.org/data/transport/mango/archive/blo/greenline/raw/2022/156/05/mango-blo-greenline-20220605-050600.hdf5', 'N'], #water on lens
