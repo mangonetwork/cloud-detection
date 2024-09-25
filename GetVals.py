@@ -58,11 +58,8 @@ def func(bigDF, url='', arr=[[]]):
     d = d.real #we use d.real to dispose of the 0j value still present after using abs
     bigDF[url] = np.ndarray.flatten(d) 
     #print(len(d[0]))
-
-
-
     #updated: 1, 450, 453, 7199 are the flattened fourier features I chose. Space for one more (8549 should be used if desired)
-    return [np.mean(dataPoints), d[0][1], d[1][0], d[1][3], d[15][449]] #mean of datapoints and the most significant fourier features are returned, greenline
+    return [np.mean(dataPoints), d[0][1], d[1][0], d[1][3], d[15][449], d[18][449]] #mean of datapoints and the most significant fourier features are returned, greenline
     #return [np.mean(dataPoints), d[0][5], d[63][425], d[39][128], d[311][322]] #redline #
 
 

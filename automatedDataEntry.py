@@ -38,30 +38,31 @@ bigDF = pd.DataFrame()
 ##SECTION 1: USING GETVALS.PY TO ACQUIRE ALL THE NECESSARY DATA. UNCOMMENT THIS SECTION TO RECOLLECT DATA
 
 #       this for loop is what collects the data, iteraing through GETURLS.py which is a list of the desired images
-for lst in urlList:
+# for lst in urlList:
     
-    letter = lst[1]
-    #print(lst[0])
+#     letter = lst[1]
+#     #print(lst[0])
 
-        #vals is the function that analyses each image and calculates each relevant feature
+#         #vals is the function that analyses each image and calculates each relevant feature
     
-    vals = GetVals.func(bigDF, lst[0])
-    #print(vals)
-    lst[1] = vals[0]
-    lst.append(vals[1])
-    lst.append(vals[2])
-    lst.append(vals[3])
-    lst.append(vals[4])
-    lst.append(letter)
-    #print(lst)
-       # this block writes the results to the brightness data csv file where all relevant stats are kept
-    with open('Brightness_Data_Copy.csv', 'w', newline='') as myfile:
-        wr = csv.writer(myfile, quoting=csv.QUOTE_ALL)
-        wr.writerow(lst)
-newList = []
+#     vals = GetVals.func(bigDF, lst[0])
+#     #print(vals)
+#     lst[1] = vals[0]
+#     lst.append(vals[1])
+#     lst.append(vals[2])
+#     lst.append(vals[3])
+#     lst.append(vals[4])
+#     lst.append(vals[5])
+#     lst.append(letter)
+#     #print(lst)
+#        # this block writes the results to the brightness data csv file where all relevant stats are kept
+#     with open('Brightness_Data_Copy.csv', 'w', newline='') as myfile:
+#         wr = csv.writer(myfile, quoting=csv.QUOTE_ALL)
+#         wr.writerow(lst)
+# newList = []
 
-df = pd.DataFrame(urlList, columns=['URL', 'Median', '90th Percentile', 'Mean', 'versions', 'version2', 'ClearSky'])
-df.to_csv("./Brightness_Data_Copy.csv", sep = ',', index = False)
+# df = pd.DataFrame(urlList, columns=['URL', 'Median', '90th Percentile', 'Mean', 'versions', 'version2', 'version3', 'ClearSky'])
+# df.to_csv("./Brightness_Data_Copy.csv", sep = ',', index = False)
 
 
 ##END OF SECTION 1
@@ -117,35 +118,36 @@ yTest = dataTest['ClearSky'] #save the classification column as a variable
 #         indicies.append(d)
 #         print(np.corrcoef(newList, b)[0][1])
 #         res.append(np.corrcoef(newList, b)[0][1])
-# # #print(res.index(min(res)))
-# print(res)
+# #print(res.index(min(res)))
+# print(res) #All the following dated sept 23: after data pruning, best features are 1/449 at -0.69089 and 449/157050 at -0.6450 for negatives. There are a ton of positives > 0.55, but use those only if necessary. For positives >0.6, we have 453/157494 at 0.6310, 7199/150751 at 0.60578, and 8549/150751 at 0.6044
 # print(indicies) #1, 449, 450, 157050 for <= -0.55, 450 = [1][0] of the fourier transform, 157050 = [349][0]. For >= 0.5, we have 453, 7199 at .5449505 and .5302 (.53019) 8549 at 0.5300 (.5296682). Two indicators from < -0.55, is 1 at -0.58547 and 450/157050 at -0.59064
 max_score = 0.0
 avg = []
 for j in range(1,10):
     summ = 0
     for i in range(1, 10000):
-        x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=j/10, random_state=i) #split the dataset into a test/train duo for fitting (60% of data) and evaluating fit quality (40% of data). Consistent random state is used to ensure testing is consistent 
-#k_range = list(range(1,26)) #this list is used to generate a plot of the test accuracy depending on the number of nearest neighbors (k). 25 is chosen as the limit rather arbitrarily, but anything beyond 25 is usually victim to overfitting
-        scores = []
-        trainingScores = []
+      x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=j/10, random_state=i) #split the dataset into a test/train duo for fitting (60% of data) and evaluating fit quality (40% of data). Consistent random state is used to ensure testing is consistent 
+      #k_range = list(range(1,26)) #this list is used to generate a plot of the test accuracy depending on the number of nearest neighbors (k). 25 is chosen as the limit rather arbitrarily, but anything beyond 25 is usually victim to overfitting
+      scores = []
+      trainingScores = []
 
 
-#As an alternative to the KNN 'lazy' prediction, this block tests logistic regression on the same train/test set as knn
-        cw = {'Y': 1.0, 'N': 1.65}
-        logr = LogisticRegression(class_weight=cw)
-        try:
-            logr.fit(x_train, y_train)
-        except ValueError as e:
-            continue
-        y_pred = logr.predict(x_test)
-        y_test_pred = logr.predict(xTest)
-        curr_score = metrics.accuracy_score(y_test, y_pred)
-        summ += curr_score
-        if curr_score > max_score:
-            max_score = curr_score
-            curr_best2 = i
-            curr_best = j
+      #As an alternative to the KNN 'lazy' prediction, this block tests logistic regression on the same train/test set as knn
+      cw = {'Y': 1.0, 'N': 1.0}
+      ##try 1.75 on the larger set of 100000
+      logr = LogisticRegression(class_weight=cw)
+      try:
+        logr.fit(x_train, y_train)
+      except ValueError as e:
+        continue
+      y_pred = logr.predict(x_test)
+      #y_test_pred = logr.predict(xTest)
+      curr_score = metrics.accuracy_score(y_test, y_pred)
+      summ += curr_score
+      if curr_score > max_score:
+        max_score = curr_score
+        curr_best2 = i
+        curr_best = j
     totalAvg = summ/9999
     avg.append([totalAvg, j])
 print(max_score)
@@ -155,8 +157,19 @@ print(avg)
 print(y.shape)
 print(y_pred.shape)
 print('logr accuracy: ' + str(metrics.accuracy_score(y_test, y_pred)))
-
+print(y_pred)
+print(y_test)
+# for i in range(len(y_test)):
+#     if y_pred[i] != y_test.iloc[i]:
+#       #  print(x_test)
+#     # print(y_test)
+#      #   print(y_pred)
+#         print('true val: ' + str(y_test.iloc[i]))
+#         print('predicted val: ' + str(y_pred[i]))
+#         print(x_test.iloc[i])
+#         print(i)
 #ROC Curve Display Section
+
 plt.rcParams.update({'font.size': 15})
 RocCurveDisplay.from_estimator(logr, x, y)
 plt.show()

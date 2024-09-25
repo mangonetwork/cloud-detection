@@ -14,9 +14,18 @@ import os as os
 from PIL import Image, ImageDraw
 import math
 import scipy
+import getUrls
 from scipy.stats import spearmanr
+import makePrediction
 
-url = 'https://data.mangonetwork.org/data/transport/mango/archive/cfs/greenline/raw/2023/195/06/mango-cfs-greenline-20230714-064000.hdf5'
+# def seefailures():
+#     for row in getUrls.getURL():
+#         res = makePrediction.makePrediction(row[0])
+#         if res != row[1]:
+#             print(res)
+#             print(row)
+# seefailures()
+url = 'https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2024/099/03/mango-low-greenline-20240408-032800.hdf5'
 r = rqs.get(url, stream=True)
 dump = r.raw
 cwd = os.getcwd()
@@ -32,3 +41,6 @@ print(a)
 plt.imshow(a, cmap='gray', vmax = 10000)
 plt.show()
 
+
+
+#seefailures()
