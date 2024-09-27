@@ -61,18 +61,18 @@ def getURL():
     ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2023/204/07/mango-low-greenline-20230723-074200.hdf5', 'N'],
     ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2023/193/06/mango-low-greenline-20230712-061600.hdf5', 'N'], 
     ['https://data.mangonetwork.org/data/transport/mango/archive/blo/greenline/raw/2022/204/09/mango-blo-greenline-20220723-094000.hdf5', 'N'], #x
-    # ['https://data.mangonetwork.org/data/transport/mango/archive/blo/greenline/raw/2022/156/06/mango-blo-greenline-20220605-062400.hdf5', 'N'], #water on lens
-    # ['https://data.mangonetwork.org/data/transport/mango/archive/blo/greenline/raw/2022/156/05/mango-blo-greenline-20220605-050600.hdf5', 'N'], #water on lens
-    # ['https://data.mangonetwork.org/data/transport/mango/archive/blo/greenline/raw/2022/170/09/mango-blo-greenline-20220619-092000.hdf5', 'Y'], #moon and this is cloudy. choose earlier in night
-    # ['https://data.mangonetwork.org/data/transport/mango/archive/blo/greenline/raw/2022/128/06/mango-blo-greenline-20220508-060000.hdf5', 'N'], #moon and water on lens
-    # ['https://data.mangonetwork.org/data/transport/mango/archive/blo/greenline/raw/2022/132/10/mango-blo-greenline-20220512-101200.hdf5', 'N'], #choose different one on this day
-    # ['https://data.mangonetwork.org/data/transport/mango/archive/blo/greenline/raw/2022/140/07/mango-blo-greenline-20220520-070400.hdf5', 'Y'], #choose earlier in the day  (not clear, should be cloudy)
+    ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2023/168/05/mango-low-greenline-20230617-050600.hdf5', 'N'], 
+    ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2023/136/04/mango-low-greenline-20230516-042800.hdf5', 'N'], 
+    ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2023/189/05/mango-low-greenline-20230708-054000.hdf5', 'Y'],
+    ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2023/079/04/mango-low-greenline-20230320-040000.hdf5', 'N'],
+    ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2023/074/03/mango-low-greenline-20230315-032600.hdf5', 'N'],
+    ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2023/172/05/mango-low-greenline-20230621-050800.hdf5', 'Y'],
     ['https://data.mangonetwork.org/data/transport/mango/archive/blo/greenline/raw/2022/148/07/mango-blo-greenline-20220528-072600.hdf5', 'N'], #x
-    # ['https://data.mangonetwork.org/data/transport/mango/archive/blo/greenline/raw/2022/148/09/mango-blo-greenline-20220528-090600.hdf5', 'N'], #remove this, can't be on the same day
-    # ['https://data.mangonetwork.org/data/transport/mango/archive/blo/greenline/raw/2022/324/05/mango-blo-greenline-20221120-051600.hdf5', 'N'], #this is snow
-   # ['https://data.mangonetwork.org/data/transport/mango/archive/blo/greenline/raw/2022/285/02/mango-blo-greenline-20221012-022400.hdf5', 'Y'], #moon interference
-   # ['https://data.mangonetwork.org/data/transport/mango/archive/blo/greenline/raw/2022/275/07/mango-blo-greenline-20221002-073000.hdf5', 'Y'], #check this one for actual clarity
-  #  ['https://data.mangonetwork.org/data/transport/mango/archive/blo/greenline/raw/2022/297/11/mango-blo-greenline-20221024-110000.hdf5', 'Y'], #check to see if this has snow
+    ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2024/245/11/mango-low-greenline-20240901-112800.hdf5', 'N'], 
+    ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2024/252/03/mango-low-greenline-20240908-032400.hdf5', 'N'],
+    ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2023/187/05/mango-low-greenline-20230706-054400.hdf5', 'Y'], 
+    ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2023/112/04/mango-low-greenline-20230422-041800.hdf5', 'Y'],
+    ['https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2023/106/03/mango-low-greenline-20230416-035800.hdf5', 'Y'], 
     ['https://data.mangonetwork.org/data/transport/mango/archive/blo/greenline/raw/2022/236/06/mango-blo-greenline-20220824-062600.hdf5', 'Y'], #x
     ['https://data.mangonetwork.org/data/transport/mango/archive/blo/greenline/raw/2022/243/07/mango-blo-greenline-20220831-074000.hdf5', 'Y'], #x
    # ['https://data.mangonetwork.org/data/transport/mango/archive/blo/greenline/raw/2022/258/05/mango-blo-greenline-20220915-050000.hdf5', 'Y'], #moon, check this

@@ -38,31 +38,31 @@ bigDF = pd.DataFrame()
 ##SECTION 1: USING GETVALS.PY TO ACQUIRE ALL THE NECESSARY DATA. UNCOMMENT THIS SECTION TO RECOLLECT DATA
 
 #       this for loop is what collects the data, iteraing through GETURLS.py which is a list of the desired images
-# for lst in urlList:
+for lst in urlList:
     
-#     letter = lst[1]
-#     #print(lst[0])
+    letter = lst[1]
+    #print(lst[0])
 
-#         #vals is the function that analyses each image and calculates each relevant feature
+        #vals is the function that analyses each image and calculates each relevant feature
     
-#     vals = GetVals.func(bigDF, lst[0])
-#     #print(vals)
-#     lst[1] = vals[0]
-#     lst.append(vals[1])
-#     lst.append(vals[2])
-#     lst.append(vals[3])
-#     lst.append(vals[4])
-#     lst.append(vals[5])
-#     lst.append(letter)
-#     #print(lst)
-#        # this block writes the results to the brightness data csv file where all relevant stats are kept
-#     with open('Brightness_Data_Copy.csv', 'w', newline='') as myfile:
-#         wr = csv.writer(myfile, quoting=csv.QUOTE_ALL)
-#         wr.writerow(lst)
-# newList = []
+    vals = GetVals.func(bigDF, lst[0])
+    #print(vals)
+    lst[1] = vals[0]
+    lst.append(vals[1])
+    lst.append(vals[2])
+    lst.append(vals[3])
+    lst.append(vals[4])
+    lst.append(vals[5])
+    lst.append(letter)
+    #print(lst)
+       # this block writes the results to the brightness data csv file where all relevant stats are kept
+    with open('Brightness_Data_Copy.csv', 'w', newline='') as myfile:
+        wr = csv.writer(myfile, quoting=csv.QUOTE_ALL)
+        wr.writerow(lst)
+newList = []
 
-# df = pd.DataFrame(urlList, columns=['URL', 'Median', '90th Percentile', 'Mean', 'versions', 'version2', 'version3', 'ClearSky'])
-# df.to_csv("./Brightness_Data_Copy.csv", sep = ',', index = False)
+df = pd.DataFrame(urlList, columns=['URL', 'Median', '90th Percentile', 'Mean', 'versions', 'version2', 'version3', 'ClearSky'])
+df.to_csv("./Brightness_Data_Copy.csv", sep = ',', index = False)
 
 
 ##END OF SECTION 1
@@ -133,7 +133,7 @@ for j in range(1,10):
 
 
       #As an alternative to the KNN 'lazy' prediction, this block tests logistic regression on the same train/test set as knn
-      cw = {'Y': 1.0, 'N': 1.0}
+      cw = {'Y': 1.0, 'N': 1.4}
       ##try 1.75 on the larger set of 100000
       logr = LogisticRegression(class_weight=cw)
       try:
