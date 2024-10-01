@@ -25,7 +25,7 @@ import makePrediction
 #             print(res)
 #             print(row)
 # seefailures()
-url = 'https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2024/252/03/mango-low-greenline-20240908-032400.hdf5'
+url = 'https://data.mangonetwork.org/data/transport/mango/archive/blo/greenline/raw/2023/260/03/mango-blo-greenline-20230917-033000.hdf5'
 r = rqs.get(url, stream=True)
 dump = r.raw
 cwd = os.getcwd()
