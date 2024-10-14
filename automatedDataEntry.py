@@ -52,7 +52,6 @@ for lst in urlList:
     lst.append(vals[2])
     lst.append(vals[3])
     lst.append(vals[4])
-    lst.append(vals[5])
     lst.append(letter)
     #print(lst)
        # this block writes the results to the brightness data csv file where all relevant stats are kept
@@ -61,7 +60,7 @@ for lst in urlList:
         wr.writerow(lst)
 newList = []
 
-df = pd.DataFrame(urlList, columns=['URL', 'Median', '90th Percentile', 'Mean', 'versions', 'version2', 'version3', 'ClearSky'])
+df = pd.DataFrame(urlList, columns=['URL', 'Median', '90th Percentile', 'Mean', 'versions', 'version2', 'ClearSky'])
 df.to_csv("./Brightness_Data_Copy.csv", sep = ',', index = False)
 
 
@@ -123,31 +122,31 @@ yTest = dataTest['ClearSky'] #save the classification column as a variable
 # print(indicies) #1, 449, 450, 157050 for <= -0.55, 450 = [1][0] of the fourier transform, 157050 = [349][0]. For >= 0.5, we have 453, 7199 at .5449505 and .5302 (.53019) 8549 at 0.5300 (.5296682). Two indicators from < -0.55, is 1 at -0.58547 and 450/157050 at -0.59064
 max_score = 0.0
 avg = []
-for j in range(1,10):
+for j in range(3,7):
     summ = 0
     for i in range(1, 10000):
-      x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=j/10, random_state=i) #split the dataset into a test/train duo for fitting (60% of data) and evaluating fit quality (40% of data). Consistent random state is used to ensure testing is consistent 
-      #k_range = list(range(1,26)) #this list is used to generate a plot of the test accuracy depending on the number of nearest neighbors (k). 25 is chosen as the limit rather arbitrarily, but anything beyond 25 is usually victim to overfitting
-      scores = []
-      trainingScores = []
+        x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=j/10, random_state=i) #split the dataset into a test/train duo for fitting (60% of data) and evaluating fit quality (40% of data). Consistent random state is used to ensure testing is consistent 
+        #k_range = list(range(1,26)) #this list is used to generate a plot of the test accuracy depending on the number of nearest neighbors (k). 25 is chosen as the limit rather arbitrarily, but anything beyond 25 is usually victim to overfitting
+        scores = []
+        trainingScores = []
 
 
-      #As an alternative to the KNN 'lazy' prediction, this block tests logistic regression on the same train/test set as knn
-      cw = {'Y': 1.0, 'N': 1.4}
-      ##try 1.75 on the larger set of 100000
-      logr = LogisticRegression(class_weight=cw)
-      try:
-        logr.fit(x_train, y_train)
-      except ValueError as e:
-        continue
-      y_pred = logr.predict(x_test)
-      #y_test_pred = logr.predict(xTest)
-      curr_score = metrics.accuracy_score(y_test, y_pred)
-      summ += curr_score
-      if curr_score > max_score:
-        max_score = curr_score
-        curr_best2 = i
-        curr_best = j
+        #As an alternative to the KNN 'lazy' prediction, this block tests logistic regression on the same train/test set as knn
+        cw = {'Y': 1.0, 'N': 1.4}
+        ##try 1.75 on the larger set of 100000
+        logr = LogisticRegression(class_weight=cw)
+        try:
+            logr.fit(x_train, y_train)
+        except ValueError as e:
+            continue
+        y_pred = logr.predict(x_test)
+        y_test_pred = logr.predict(xTest)
+        curr_score = metrics.accuracy_score(y_test, y_pred)
+        summ += curr_score
+        if curr_score > max_score:
+            max_score = curr_score
+            curr_best2 = i
+            curr_best = j
     totalAvg = summ/9999
     avg.append([totalAvg, j])
 print(max_score)
@@ -168,7 +167,7 @@ print(y_test)
 #         print('predicted val: ' + str(y_pred[i]))
 #         print(x_test.iloc[i])
 #         print(i)
-#ROC Curve Display Section
+# ROC Curve Display Section
 
 plt.rcParams.update({'font.size': 15})
 RocCurveDisplay.from_estimator(logr, x, y)
