@@ -1,4 +1,4 @@
-URL,Median,90th Percentile,Mean,versions,version2,std,ClearSky
+URL,Mean,FF1,FF2,FF3,FF4,Std_Dev,ClearSky
 https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2022/156/07/mango-low-greenline-20220605-071400.hdf5,5897.099267854444,4.4248038167753,12.26224458435638,0.7949440934371096,1.640713606621393,822.7573012299209,Y
 https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2024/061/02/mango-low-greenline-20240301-025400.hdf5,3079.734177427751,4.781556945653344,7.242144430633266,0.8575718771682331,1.7162719888995872,650.5973485135355,Y
 https://data.mangonetwork.org/data/transport/mango/archive/low/greenline/raw/2024/210/04/mango-low-greenline-20240728-043200.hdf5,2267.9797988278956,2.8248398492173634,8.886817587995852,0.4376172570389415,0.989046057330328,649.9216386733184,Y

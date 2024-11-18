@@ -61,7 +61,7 @@ for lst in urlList:
         wr.writerow(lst)
 newList = []
 
-df = pd.DataFrame(urlList, columns=['URL', 'Median', '90th Percentile', 'Mean', 'versions', 'version2', 'std', 'ClearSky'])
+df = pd.DataFrame(urlList, columns=['URL', 'Mean', 'FF1', 'FF2', 'FF3', 'FF4', 'Std_Dev', 'ClearSky'])
 df.to_csv("./Brightness_Data_Copy.csv", sep = ',', index = False)
 
 
