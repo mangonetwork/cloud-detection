@@ -24,6 +24,8 @@ from sklearn.metrics import RocCurveDisplay
 from sklearn.preprocessing import LabelBinarizer
 import testURLS
 import scipy
+from sklearn import svm
+from sklearn.metrics import precision_score
 
 
 
@@ -31,8 +33,6 @@ import scipy
 #getURLS is the list of URLS corresponding to images that measurements are taken from (in hdf5 format)
 urlList = getUrls.getURL()
 bigDF = pd.DataFrame()
-
-
 
 
 ##SECTION 1: USING GETVALS.PY TO ACQUIRE ALL THE NECESSARY DATA. UNCOMMENT THIS SECTION TO RECOLLECT DATA
@@ -52,6 +52,7 @@ for lst in urlList:
     lst.append(vals[2])
     lst.append(vals[3])
     lst.append(vals[4])
+    lst.append(vals[5])
     lst.append(letter)
     #print(lst)
        # this block writes the results to the brightness data csv file where all relevant stats are kept
@@ -60,7 +61,7 @@ for lst in urlList:
         wr.writerow(lst)
 newList = []
 
-df = pd.DataFrame(urlList, columns=['URL', 'Median', '90th Percentile', 'Mean', 'versions', 'version2', 'ClearSky'])
+df = pd.DataFrame(urlList, columns=['URL', 'Median', '90th Percentile', 'Mean', 'versions', 'version2', 'std', 'ClearSky'])
 df.to_csv("./Brightness_Data_Copy.csv", sep = ',', index = False)
 
 
@@ -107,34 +108,104 @@ yTest = dataTest['ClearSky'] #save the classification column as a variable
 #         newList.append(1)
 
 # res =[]
+# indicies = []
 # for d in range(len(bigDF.index)):
 #     b = bigDF.iloc[d].to_numpy()
 #     #print(b)
 #     #print(np.corrcoef(newList, b))
-#     if np.corrcoef(newList, b)[0][1] <= -0.55:
-#          print(d)
-#          print(np.corrcoef(newList, b)[0][1])
-#     res.append(np.corrcoef(newList, b)[0][1])
-# # #print(res.index(min(res)))
+#     if np.corrcoef(newList, b)[0][1] > 0.55:
+#         print(d)
+#         indicies.append(d)
+#         print(np.corrcoef(newList, b)[0][1])
+#         res.append(np.corrcoef(newList, b)[0][1])
+# print(res.index(min(res)))
+# print(res) #All the following dated sept 23: after data pruning, best features are 1/449 at -0.69089 and 449/157050 at -0.6450 for negatives. There are a ton of positives > 0.55, but use those only if necessary. For positives >0.6, we have 453/157494 at 0.6310, 7199/150751 at 0.60578, and 8549/150751 at 0.6044
+# print(indicies) #1, 449, 450, 157050 for <= -0.55, 450 = [1][0] of the fourier transform, 157050 = [349][0]. For >= 0.5, we have 453, 7199 at .5449505 and .5302 (.53019) 8549 at 0.5300 (.5296682). Two indicators from < -0.55, is 1 at -0.58547 and 450/157050 at -0.59064
+max_score = 0.0
+avg = []
+svm_avg = []
+num_iters = 1
+curr_best = 0
+for j in range(1,7):
+    summ = 0
+    svmsumm = 0
+    num_iters = 0
+    num_iters_SVM = 0
+    for i in range(1, 10000):
+        x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=j/10, random_state=i) #split the dataset into a test/train duo for fitting (60% of data) and evaluating fit quality (40% of data). Consistent random state is used to ensure testing is consistent 
+       #k_range = list(range(1,26)) #this list is used to generate a plot of the test accuracy depending on the number of nearest neighbors (k). 25 is chosen as the limit rather arbitrarily, but anything beyond 25 is usually victim to overfitting
+        scores = []
+        trainingScores = []
+        y_count = 0
+        n_count = 0
+        for row in y_train:
+            if row == 'Y':
+                y_count += 1
+            elif row == 'N':
+                n_count += 1
+        # if n_count > 160 or y_count > 160:
+        #     continue
 
+        #As an alternative to the KNN 'lazy' prediction, this block tests logistic regression on the same train/test set as knn
+        cw = {'Y': 1.0, 'N': 1.0}
+        ##try 1.75 on the larger set of 100000
+        logr = LogisticRegression(class_weight=cw, max_iter=10000)
+        try:
+                logr.fit(x_train, y_train)
+        except ValueError as e:
+            continue
+        num_iters += 1
+        y_pred = logr.predict(x_test)
+        #y_test_pred = logr.predict(xTest)
+        curr_score = metrics.accuracy_score(y_test, y_pred)
+        try:
+                clf = svm.SVC(max_iter=10000, class_weight=cw)
+                clf.fit(x_train, y_train)
+        except ValueError as e:
+            continue
+        num_iters_SVM += 1
+        y_pred = clf.predict(x_test)
+        curr_score_SVM = metrics.accuracy_score(y_test, y_pred)
 
-x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.4, random_state=0) #split the dataset into a test/train duo for fitting (60% of data) and evaluating fit quality (40% of data). Consistent random state is used to ensure testing is consistent 
-k_range = list(range(1,26)) #this list is used to generate a plot of the test accuracy depending on the number of nearest neighbors (k). 25 is chosen as the limit rather arbitrarily, but anything beyond 25 is usually victim to overfitting
-scores = []
-trainingScores = []
-
-
-#As an alternative to the KNN 'lazy' prediction, this block tests logistic regression on the same train/test set as knn
-cw = {'Y': 1.0, 'N': 1.65}
-logr = LogisticRegression(class_weight=cw)
-logr.fit(x_train, y_train)
-y_pred = logr.predict(x_test)
-y_test_pred = logr.predict(xTest)
+       # print(curr_score)
+        # if metrics.accuracy_score(y_test, y_pred) > 0.98:
+        #     print(j)
+        #     print(i)
+        #     print(metrics.accuracy_score(y_test, y_pred))
+        #     exit()
+        summ += curr_score
+        svmsumm += curr_score_SVM
+        if curr_score > max_score:
+            max_score = curr_score
+            curr_best2 = i
+            curr_best = j
+    if num_iters != 0:
+        totalAvg = summ/num_iters
+        avg.append([totalAvg, j])
+    if num_iters_SVM != 0:
+        totalAvg = svmsumm/num_iters_SVM
+        svm_avg.append([totalAvg, j])
+#print(max_score)
+#print(curr_best)
+#print(curr_best2)
+print(avg)
+print(svm_avg)
 print(y.shape)
 print(y_pred.shape)
 print('logr accuracy: ' + str(metrics.accuracy_score(y_test, y_pred)))
+print(y_pred)
+print(y_test)
+# for i in range(len(y_test)):
+#     if y_pred[i] != y_test.iloc[i]:
+#       #  print(x_test)
+#     # print(y_test)
+#      #   print(y_pred)
+#         print('true val: ' + str(y_test.iloc[i]))
+#         print('predicted val: ' + str(y_pred[i]))
+#         print(x_test.iloc[i])
+#         print(i)
+# ROC Curve Display Section
 
-#ROC Curve Display Section
 plt.rcParams.update({'font.size': 15})
 RocCurveDisplay.from_estimator(logr, x, y)
 plt.show()
@@ -144,3 +215,4 @@ cm = confusion_matrix(y, logr.predict(x), normalize='true')
 disp = ConfusionMatrixDisplay(cm, display_labels=['cloudy', 'clear'])
 disp.plot()
 plt.show()
+
