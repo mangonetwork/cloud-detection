@@ -59,7 +59,8 @@ def func(bigDF, url='', arr=[[]]):
     bigDF[url] = np.ndarray.flatten(d) 
     #print(len(d[0]))
     #updated: 1, 450, 453, 7199 are the flattened fourier features I chose. Space for one more (8549 should be used if desired)
-    return [np.mean(dataPoints), d[0][1], d[1][0], d[1][3], d[15][449]] #mean of datapoints and the most significant fourier features are returned, greenline
+    return [np.mean(dataPoints), d[0][1], d[1][0], d[19][0], d[15][449], np.std(dataPoints)] #mean of datapoints and the most significant fourier features are returned, greenline
+    #after redline integration, 1, 449, 450, 157040, 7649, 8549, 149401, 150301
     #return [np.mean(dataPoints), d[0][5], d[63][425], d[39][128], d[311][322]] #redline #
 
 
