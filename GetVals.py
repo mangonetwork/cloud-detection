@@ -31,7 +31,7 @@ def func(bigDF, url='', arr=[[]]):
         arr = file['image'] #array of values
 
     
-    a = arr[100:450, 100:550] #crop the image
+    a = arr[50:450, 100:600]  #crop the image
     
     h = len(a[0])
     k = len(a[:, 0])
@@ -49,6 +49,7 @@ def func(bigDF, url='', arr=[[]]):
                 count += 1
                 
     norm = np.linalg.norm(a) #the data in the image is normalized before the Fourier transformation
+    pre_norm_a = a
     a = a/norm 
     d = scipy.fft.fft2(a) #The Fourier features are calculated through the fourier transform and then abs is used to combine the real and imaginary components
     for i in range(len(d)):
@@ -58,10 +59,13 @@ def func(bigDF, url='', arr=[[]]):
     d = d.real #we use d.real to dispose of the 0j value still present after using abs
     bigDF[url] = np.ndarray.flatten(d) 
     #print(len(d[0]))
+    a = a * norm
     #updated: 1, 450, 453, 7199 are the flattened fourier features I chose. Space for one more (8549 should be used if desired)
-    return [np.mean(dataPoints), d[0][1], d[1][0], d[19][0], d[15][449], np.std(dataPoints)] #mean of datapoints and the most significant fourier features are returned, greenline
+    return [np.mean(pre_norm_a), d[0][1], d[1][0], d[1][499], d[399][496]] # replaced d[0][1], d[1][0], d[19][0] d[15][449] #mean of datapoints and the most significant fourier features are returned, greenline
     #after redline integration, 1, 449, 450, 157040, 7649, 8549, 149401, 150301
     #return [np.mean(dataPoints), d[0][5], d[63][425], d[39][128], d[311][322]] #redline #
+    #no signiciant difference for circle crop vs rectangle crop (no var)
+    #
 
 
 #453
