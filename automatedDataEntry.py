@@ -14,6 +14,7 @@ from sklearn import neighbors, datasets
 from matplotlib.colors import ListedColormap
 import math
 from sklearn.linear_model import LogisticRegression
+import warnings
 from sklearn import preprocessing
 from sklearn import svm
 from ast import literal_eval
@@ -26,9 +27,15 @@ import testURLS
 import scipy
 from sklearn import svm
 from sklearn.metrics import precision_score
-
-
-
+import time
+from sklearn.metrics import mean_absolute_percentage_error
+import timeit
+from sklearn.metrics import classification_report
+from sklearn.metrics import precision_recall_curve
+from sklearn.metrics import PrecisionRecallDisplay
+from scipy.stats import norm
+import statsmodels.api as sm
+warnings.filterwarnings("ignore", category=UserWarning)
 
 #getURLS is the list of URLS corresponding to images that measurements are taken from (in hdf5 format)
 urlList = getUrls.getURL()
@@ -123,14 +130,14 @@ yTest = dataTest['ClearSky'] #save the classification column as a variable
 
 
 
-# newList = []
+newList = []
 
 
-# for q in range(len(y)):
-#     if y[q] == 'N':
-#         newList.append(0)
-#     else:
-#         newList.append(1)
+for q in range(len(y)):
+    if y[q] == 'N':
+        newList.append(0)
+    else:
+        newList.append(1)
 # print(newList)
 # res =[]
 # indicies = []
@@ -155,18 +162,38 @@ yTest = dataTest['ClearSky'] #save the classification column as a variable
 # print(res) #All the following dated sept 23: after data pruning, best features are 1/449 at -0.69089 and 449/157050 at -0.6450 for negatives. There are a ton of positives > 0.55, but use those only if necessary. For positives >0.6, we have 453/157494 at 0.6310, 7199/150751 at 0.60578, and 8549/150751 at 0.6044
 # print(indicies) #1, 449, 450, 157050 for <= -0.55, 450 = [1][0] of the fourier transform, 157050 = [349][0]. For >= 0.5, we have 453, 7199 at .5449505 and .5302 (.53019) 8549 at 0.5300 (.5296682). Two indicators from < -0.55, is 1 at -0.58547 and 450/157050 at -0.59064
 max_score = 0.0
+def predict(urlString, model):
+    vals = GetVals.func(url=urlString) #get the features for the desired url/array
+    res = model.predict([vals])
+    return res
+     
 
 x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=4/10, random_state=68)
 logr = LogisticRegression(max_iter=10000)
 logr.fit(x_train, y_train)
 y_pred = logr.predict(x_test)
+logit_model=sm.Logit(y_train,sm.add_constant(x_train))
+result=logit_model.fit()
+print(result.summary())
+# start_time = time.time()
+# for _ in range(1000):
+#     predict('https://data.mangonetwork.org/data/transport/mango/archive/mro/greenline/raw/2023/233/03/mango-mro-greenline-20230821-032000.hdf5', logr)
+# end_time = time.time()
+# print(end_time - start_time)
+#also try a lambda version of predict to try and reduce excessive printing
+# executiontime = timeit.timeit(lambda: predict('https://data.mangonetwork.org/data/transport/mango/archive/mro/greenline/raw/2023/233/03/mango-mro-greenline-20230821-032000.hdf5', logr), number=1000)
+# print(executiontime) #average execution time to predict the class of one image
+# mape = mean_absolute_percentage_error(y_test, y_pred)
+# print(mape)
 curr_score = metrics.accuracy_score(y_test, y_pred)
 curr_p = metrics.precision_score(y_test, y_pred, pos_label='Y')
 print(curr_score)
 print(curr_p)
 plt.rcParams.update({'font.size': 15})
 RocCurveDisplay.from_estimator(logr, x, y).plot()
-
+print(classification_report(y_test, y_pred))
+plt.show()
+PrecisionRecallDisplay.from_estimator(logr, x, y).plot()
 plt.show()
 cm = confusion_matrix(y, logr.predict(x), normalize='true')
 disp = ConfusionMatrixDisplay(cm, display_labels=['cloudy', 'clear'])

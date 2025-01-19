@@ -19,7 +19,7 @@ import scipy
 from scipy.stats import spearmanr
 
 
-def func(bigDF, url='', arr=[[]]):
+def func(bigDF=None, url='', arr=[[]]):
     if (not url==''):   #if the input is a URL, retrieve the image data and label it as arr
         r = rqs.get(url, stream=True)
         dump = r.raw
@@ -33,31 +33,31 @@ def func(bigDF, url='', arr=[[]]):
     
     a = arr[50:450, 100:600]  #crop the image
     
-    h = len(a[0])
-    k = len(a[:, 0])
-    count = 0
-    dataPoints = [] #dataPoints stores the values inside of a circular crop which are used to get a mean
-    #radius to use for equation of a circle: 
-    rad = 200 #change to increase radius of measurement
+    # h = len(a[0])
+    # k = len(a[:, 0])
+    # count = 0
+    # dataPoints = [] #dataPoints stores the values inside of a circular crop which are used to get a mean
+    # #radius to use for equation of a circle: 
+    # rad = 200 #change to increase radius of measurement
     
-    for x in range(k): #This loop retrieves the data points that are inside the camera lens to make a complete mean measurement
+    # for x in range(k): #This loop retrieves the data points that are inside the camera lens to make a complete mean measurement
         
-        for y in range(h):
-            circleCalc = (x - (k/2))**2 + (y - (h/2))**2 
-            if circleCalc <= rad**2:
-                dataPoints.append(a[x, y])
-                count += 1
+    #     for y in range(h):
+    #         circleCalc = (x - (k/2))**2 + (y - (h/2))**2 
+    #         if circleCalc <= rad**2:
+    #             dataPoints.append(a[x, y])
+    #             count += 1
                 
     norm = np.linalg.norm(a) #the data in the image is normalized before the Fourier transformation
     pre_norm_a = a
     a = a/norm 
     d = scipy.fft.fft2(a) #The Fourier features are calculated through the fourier transform and then abs is used to combine the real and imaginary components
-    for i in range(len(d)):
-        for j in range(len(d[i])):
-            d[i][j] = abs(d[i][j])
-    #print(d.shape)   
+    # for i in range(len(d)):
+    #     for j in range(len(d[i])):
+    #         d[i][j] = abs(d[i][j])
+    # #print(d.shape)   
     d = d.real #we use d.real to dispose of the 0j value still present after using abs
-    bigDF[url] = np.ndarray.flatten(d) 
+    # bigDF[url] = np.ndarray.flatten(d) 
     #print(len(d[0]))
     a = a * norm
     #updated: 1, 450, 453, 7199 are the flattened fourier features I chose. Space for one more (8549 should be used if desired)
