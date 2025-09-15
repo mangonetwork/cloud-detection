@@ -19,7 +19,7 @@ import scipy
 from scipy.stats import spearmanr
 
 
-def func(bigDF=None, url='', arr=[[]]):
+def func(bigDF=None, url='', file='', arr=[[]]):
     if (not url==''):   #if the input is a URL, retrieve the image data and label it as arr
         r = rqs.get(url, stream=True)
         dump = r.raw
@@ -29,9 +29,28 @@ def func(bigDF=None, url='', arr=[[]]):
             sh.copyfileobj(dump, location)
         file = h5.File('testfile.hdf5', 'r+')
         arr = file['image'] #array of values
+        a = arr[50:450, 100:600]  #crop the image
+    elif (not file==''):
+        file = h5.File(file, 'r+')
+        arr = file['image'] #array of values
+        a = arr[50:450, 100:600]  #crop the image
+    else:
+        a = arr.copy()
 
+    #fig, ax = plt.subplots()
+    #ax.imshow(arr)
+    #plt.show()
     
-    a = arr[50:450, 100:600]  #crop the image
+#    # This cropping doesn't make sense for processed data
+#    if (not file==''):
+#        a = arr.copy()
+#    else:
+#        a = arr[50:450, 100:600]  #crop the image
+#    #a = arr.copy()
+    
+    #fig, ax = plt.subplots()
+    #ax.imshow(a)
+    #plt.show()
     
     # h = len(a[0])
     # k = len(a[:, 0])

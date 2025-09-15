@@ -24,7 +24,8 @@ from sklearn.metrics import RocCurveDisplay
 from sklearn.preprocessing import LabelBinarizer
 
 
-def makePrediction(url='', dataArray=[[]]):
+def makePrediction(url='', file='', dataArray=[[]]):
+    # Something in here spits out a bunch of warnings - silence them?
     data = pd.read_csv("Brightness_Data_Copy.csv") #load the existing csv into a data variable
 
     x = data.drop(['ClearSky'], axis=1) #drop the classification column from the dataset 
@@ -37,7 +38,7 @@ def makePrediction(url='', dataArray=[[]]):
     logr = LogisticRegression(class_weight=cw)
     logr.fit(x, y)
     bigDF = pd.DataFrame()
-    vals = GetVals.func(bigDF, url, arr = dataArray) #get the features for the desired url/array
+    vals = GetVals.func(bigDF, url, file, arr = dataArray) #get the features for the desired url/array
     res = logr.predict([vals]) #predict cloudy or clear
     return res
 #makePrediction(url = 'https://data.mangonetwork.org/data/transport/mango/archive/mro/greenline/raw/2023/233/03/mango-mro-greenline-20230821-032000.hdf5')
