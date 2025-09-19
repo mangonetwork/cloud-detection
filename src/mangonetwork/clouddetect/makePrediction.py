@@ -6,8 +6,8 @@ from sklearn.model_selection import train_test_split
 from sklearn import metrics
 from sklearn.linear_model import LogisticRegression
 from sklearn.neighbors import KNeighborsClassifier
-import getUrls
-import GetVals
+#import .getUrls
+from .GetVals import func
 import csv
 from sklearn.inspection import DecisionBoundaryDisplay
 from sklearn import neighbors, datasets
@@ -22,11 +22,19 @@ from sklearn.metrics import confusion_matrix
 import heapq
 from sklearn.metrics import RocCurveDisplay
 from sklearn.preprocessing import LabelBinarizer
+import sys
+if sys.version_info < (3, 9):
+    import importlib_resources as resources
+else:
+    from importlib import resources
+
 
 
 def makePrediction(filename=None, url=None, dataArray=None):
     # Something in here spits out a bunch of warnings - silence them?
-    data = pd.read_csv("Brightness_Data_Copy.csv") #load the existing csv into a data variable
+    name = "Brightness_Data_Copy.csv"
+    csv_filename = resources.files("mangonetwork.clouddetect.data").joinpath(name)
+    data = pd.read_csv(csv_filename) #load the existing csv into a data variable
 
     x = data.drop(['ClearSky'], axis=1) #drop the classification column from the dataset 
     urlCol = x['URL'] 
@@ -38,7 +46,8 @@ def makePrediction(filename=None, url=None, dataArray=None):
     logr = LogisticRegression(class_weight=cw)
     logr.fit(x, y)
     bigDF = pd.DataFrame()
-    vals = GetVals.func(bigDF, filename, url, arr = dataArray) #get the features for the desired url/array
+    #vals = GetVals.func(bigDF, filename, url, arr = dataArray) #get the features for the desired url/array
+    vals = func(bigDF, filename, url, arr = dataArray) #get the features for the desired url/array
     res = logr.predict([vals]) #predict cloudy or clear
     return res
 #makePrediction(url = 'https://data.mangonetwork.org/data/transport/mango/archive/mro/greenline/raw/2023/233/03/mango-mro-greenline-20230821-032000.hdf5')

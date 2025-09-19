@@ -1,0 +1,68 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+
+name = "mangonetwork-clouddetect"
+dynamic = ["version"]
+description = "Automatically detect cloud in raw MANGO images"
+readme = "README.md"
+requires-python = ">= 3.9"
+license = { file = "LICENSE" }
+authors = [
+    { name='Matthew Burnes' },
+    { name='Asti Bhatt', email='asti.bhatt@sri.com' },
+    { name='Leslie Lamarche', email='leslie.lamarche@sri.com' },
+    { name='Todd Valentic', email='todd.valentic@gmail.com' }
+]
+
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+    "Operating System :: OS Independent"
+]
+
+dependencies = [
+#    "numpy",
+#    "scipy",
+#    "scikit-image",
+#    "h5py",
+#    "pandas",
+#    "matplotlib",
+#    "hcipy",
+#    "importlib_resources>1.3; python_version < '3.10'"
+]
+
+[project.optional-dependencies]
+test = [
+    'pytest',
+    'pyfakefs',
+    'pylint',
+    'black'
+]
+devel = [
+    'build'
+]
+
+[project.urls]
+homepage="https://www.mangonetwork.org"
+repository="https://github.com/mangonetwork/cloud-detection"
+
+#[project.scripts]
+#    mango-process-raw-images = "mangonetwork.clouddetect.process_raw_images:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+clouddetect = ["src/mangonetwork/clouddetect/data/*.csv"]
+
+[tool.setuptools.dynamic]
+version = { attr = "mangonetwork.clouddetect.__version__"}
+
+[tool.pytest.ini_options]
+addopts = [
+    "--import-mode=importlib"
+]
+
