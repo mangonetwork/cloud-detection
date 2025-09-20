@@ -5,23 +5,23 @@ Created on Wed Mar  8 16:35:03 2023
 @author: ndfon & MBurnes
 """
 import requests as rqs #urls from website
-import matplotlib as mp
-import matplotlib.pyplot as plt
-import pandas as pd
-import math
+#import matplotlib as mp
+#import matplotlib.pyplot as plt
+#import pandas as pd
+#import math
 import numpy as np
 import h5py as h5 # hdf5 files - large files compact
 import shutil as sh
 import os as os
-from PIL import Image, ImageDraw
-import math
+#from PIL import Image, ImageDraw
+#import math
 import scipy
 from scipy.stats import spearmanr
 
 
-def func(bigDF=None, filename=None, url=None, arr=None):
+def func(filename=None, url=None, arr=None):
 
-    if filename:
+    if filename:    #if the input is a filename, load teh image and lable it as arr
         file = h5.File(filename, 'r')
         arr = file['image'] #array of values
 
