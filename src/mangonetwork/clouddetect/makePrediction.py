@@ -1,28 +1,7 @@
 import pandas as pd
-#import numpy as np
-#import seaborn as sns
-#import matplotlib.pyplot as plt
-#from sklearn.model_selection import train_test_split
-#from sklearn import metrics
 from sklearn.linear_model import LogisticRegression
 from sklearn.exceptions import ConvergenceWarning
-#from sklearn.neighbors import KNeighborsClassifier
-#import .getUrls
 from .GetVals import func
-#import csv
-#from sklearn.inspection import DecisionBoundaryDisplay
-#from sklearn import neighbors, datasets
-#from matplotlib.colors import ListedColormap
-#import math
-#from sklearn.linear_model import LogisticRegression
-#from sklearn import preprocessing
-#from sklearn import svm
-#from ast import literal_eval
-#from sklearn.metrics import ConfusionMatrixDisplay
-#from sklearn.metrics import confusion_matrix
-#import heapq
-#from sklearn.metrics import RocCurveDisplay
-#from sklearn.preprocessing import LabelBinarizer
 import warnings
 import sys
 if sys.version_info < (3, 9):

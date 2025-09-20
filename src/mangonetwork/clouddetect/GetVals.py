@@ -5,18 +5,11 @@ Created on Wed Mar  8 16:35:03 2023
 @author: ndfon & MBurnes
 """
 import requests as rqs #urls from website
-#import matplotlib as mp
-#import matplotlib.pyplot as plt
-#import pandas as pd
-#import math
 import numpy as np
 import h5py as h5 # hdf5 files - large files compact
 import shutil as sh
 import os as os
-#from PIL import Image, ImageDraw
-#import math
 import scipy
-from scipy.stats import spearmanr
 
 
 def func(filename=None, url=None, arr=None):
