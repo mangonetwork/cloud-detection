@@ -6,6 +6,7 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.exceptions import ConvergenceWarning
 from .GetVals import feature_vector
 import warnings
+import io
 import sys
 import os
 if sys.version_info < (3, 9):
@@ -44,17 +45,14 @@ def makePrediction(instrument, filename=None, url=None, dataArray=None):
 
     # Load Image for Prediction
     if filename:    #if the input is a filename, load teh image and lable it as arr
-        file = h5.File(filename, 'r')
-        arr = file['image'] #array of values
+        with h5.File(filename, 'r') as f:
+            arr = f['image'][:] #array of values
     elif url:   #if the input is a URL, retrieve the image data and label it as arr
+        #print(url)
         r = rqs.get(url, stream=True)
-        dump = r.raw
-        cwd = os.getcwd()   # Messy, especially if you're not deleting the file afterwards
-        location = os.path.abspath(cwd)
-        with open('tempfile.hdf5', 'wb') as location:
-            sh.copyfileobj(dump, location)
-        file = h5.File('tempfile.hdf5', 'r+')
-        arr = file['image'] #array of values
+        bio = io.BytesIO(r.content)
+        with h5.File(bio, 'r') as f:
+            arr = f['image'][:]
     else:
         arr = np.array(arr)
 
@@ -69,9 +67,5 @@ def makePrediction(instrument, filename=None, url=None, dataArray=None):
         res = logr.predict([vals]) #predict cloudy or clear
     
     return res
-#    if res[0] == 'Y':
-#        return True     # clear
-#    else:
-#        return False    # cloudy
 
 #makePrediction(url = 'https://data.mangonetwork.org/data/transport/mango/archive/mro/greenline/raw/2023/233/03/mango-mro-greenline-20230821-032000.hdf5')
