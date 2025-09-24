@@ -31,7 +31,7 @@ def rawfile(filename):
 
 
 
-def level1file(filename, raw_mango_dir=None):
+def processedfile(filename, raw_mango_dir=None):
     """Check if each image is cloudy or not"""
 
     with h5py.File(filename) as h5:
