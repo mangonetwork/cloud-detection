@@ -4,32 +4,20 @@ Created on Wed Mar  8 16:35:03 2023
 
 @author: ndfon & MBurnes
 """
-import requests as rqs #urls from website
+#import requests as rqs #urls from website
 import numpy as np
-import h5py as h5 # hdf5 files - large files compact
-import shutil as sh
-import os as os
+#import h5py as h5 # hdf5 files - large files compact
+#import shutil as sh
+#import os as os
 import scipy
 
+# This script can PROBABLY be combined with makePrediction.py
 
-def func(filename=None, url=None, arr=None):
 
-    if filename:    #if the input is a filename, load teh image and lable it as arr
-        file = h5.File(filename, 'r')
-        arr = file['image'] #array of values
+#def func(filename=None, url=None, arr=None):
 
-    elif url:   #if the input is a URL, retrieve the image data and label it as arr
-        r = rqs.get(url, stream=True)
-        dump = r.raw
-        cwd = os.getcwd()   # Messy, especially if you're not deleting the file afterwards
-        location = os.path.abspath(cwd)
-        with open('testfile.hdf5', 'wb') as location:
-            sh.copyfileobj(dump, location)
-
-        file = h5.File('testfile.hdf5', 'r+')
-        arr = file['image'] #array of values
-    else:
-        arr = np.array(arr)
+def feature_vector(arr):
+    """Calculate feature vectors for an image array"""
 
     a = arr[50:450, 100:600]  #crop the image
 
