@@ -1,4 +1,5 @@
 # check_cloudy.py
+import os
 import datetime as dt
 import h5py
 from .makePrediction import makePrediction
@@ -37,7 +38,7 @@ def processedfile(filename, raw_mango_dir=None):
     with h5py.File(filename) as h5:
         station = h5["ImageData"].attrs["station"]
         instrument = h5["ImageData"].attrs["instrument"]
-        utime = h5["UnixTime"][0,:]
+        utime = h5["UnixTime"][:,0]
 
     cloudy = list()
     for ut in utime:
