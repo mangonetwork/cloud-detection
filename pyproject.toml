@@ -48,14 +48,11 @@ devel = [
 homepage="https://www.mangonetwork.org"
 repository="https://github.com/mangonetwork/cloud-detection"
 
-#[project.scripts]
-#    mango-process-raw-images = "mangonetwork.clouddetect.process_raw_images:main"
-
 [tool.setuptools.packages.find]
 where = ["src"]
 
 [tool.setuptools.package-data]
-clouddetect = ["src/mangonetwork/clouddetect/data/*.csv"]
+"*" = ["*.csv"]
 
 [tool.setuptools.dynamic]
 version = { attr = "mangonetwork.clouddetect.__version__"}
