@@ -16,13 +16,10 @@ else:
 
 # NOTE: Block notations may not be accurate - LL 2025-09-22
 
-def makePrediction(instrument, filename=None, url=None, dataArray=None):
+def makePrediction(filename=None, url=None, dataArray=None):
 
     # Load Training Data
-    if instrument == 'greenline':
-        name = "Brightness_Data_Copy.csv"   # Dependent on red or green
-    else:
-        name = "Brightness_Data_Copy_Red.csv"   # Dependent on red or green
+    name = "Brightness_Data_Copy.csv"   # Dependent on red or green
     csv_filename = resources.files("mangonetwork.clouddetect.data").joinpath(name)
     data = pd.read_csv(csv_filename) #load the existing csv into a data variable
 

@@ -45,7 +45,8 @@ def feature_vector(arr):
     #     for j in range(len(d[i])):
     #         d[i][j] = abs(d[i][j])
     # #print(d.shape)   
-    d = d.real #we use d.real to dispose of the 0j value still present after using abs
+    #d = d.real #we use d.real to dispose of the 0j value still present after using abs
+    d = np.abs(d)
     # bigDF[url] = np.ndarray.flatten(d) 
     #print(len(d[0]))
     a = a * norm

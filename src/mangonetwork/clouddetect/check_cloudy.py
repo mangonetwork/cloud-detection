@@ -20,10 +20,10 @@ def rawfile(filename):
         
     """
 
-    with h5py.File(filename, 'r') as h5:
-        instrument = h5['image'].attrs['instrument']
+    #with h5py.File(filename, 'r') as h5:
+    #    instrument = h5['image'].attrs['instrument']
 
-    res = makePrediction(instrument, filename=filename)
+    res = makePrediction(filename=filename)
 
     if res == 'Y':
         return False
@@ -46,11 +46,11 @@ def processedfile(filename, raw_mango_dir=None):
         raw_filename = f'{station}/{instrument}/raw/{time:%Y/%j/%H}/mango-{station}-{instrument}-{time:%Y%m%d-%H%M%S}.hdf5'
         if raw_mango_dir:
             raw_filepath = os.path.join(raw_mango_dir, raw_filename)
-            res = makePrediction(instrument, filename=raw_filepath)
+            res = makePrediction(filename=raw_filepath)
         else:
             base_url = 'https://data.mangonetwork.org/data/transport/mango/archive/'
             url = base_url+raw_filename
-            res = makePrediction(instrument, url=url)
+            res = makePrediction(url=url)
         if res == 'Y':
             cloudy.append(False)
         else:
