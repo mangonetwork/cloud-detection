@@ -44,14 +44,14 @@ More flexible functionality is available directly from the `makePrediction` modu
 ```
 from mangonetwork.clouddetect.makePrediction import makePrediction
 
-res = makePrediction('greenline', filename='mango-mro-greenline-20230821-032000.hdf5')
+res = makePrediction(filename='mango-mro-greenline-20230821-032000.hdf5')
 ```
 
 ### URL Input
 ```
 from mangonetwork.clouddetect.makePrediction import makePrediction
 
-res = makePrediction('greenline', url='https://data.mangonetwork.org/data/transport/mango/archive/mro/greenline/raw/2023/233/03/mango-mro-greenline-20230821-032000.hdf5')
+res = makePrediction(url='https://data.mangonetwork.org/data/transport/mango/archive/mro/greenline/raw/2023/233/03/mango-mro-greenline-20230821-032000.hdf5')
 ```
 
 ### Array Input
@@ -61,7 +61,7 @@ import h5py
 
 with h5py.File('mango-mro-greenline-20230821-032000.hdf5', 'r') as f:
     arr = f['image'][:]
-res = makePrediction('greenline', dataArray=arr)
+res = makePrediction(dataArray=arr)
 ```
 
 
